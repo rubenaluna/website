@@ -112,6 +112,18 @@ export const Home: FC = () => {
         <div>Aug. 2016 - May 2019</div>
         <div>GPA: 3.725 - Cum Laude</div>
       </section>
+      <section id="biography" className="h-full p-10 items-center">
+        <h2>Biography</h2>
+        <div>
+          I was born, raised and currently reside in the Dallas - Fort Worth
+          Metroplex. I live with my incredible wife, Amy, and our two cats,
+          Pewter and Nico! My hobbies include strength-training, discovering and
+          creating music, and playing story-rich video games. Thanks for taking
+          the time to read through my website!
+        </div>
+        <div>Cheers,</div>
+        <div>Ruben</div>
+      </section>
     </div>
   );
 };
