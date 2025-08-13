@@ -20,13 +20,19 @@ body {
 
 @layer base {
   h1 {
-    font-size: var(--text-6xl);
+    font-size: var(--text-8xl);
   }
   h2 {
-    font-size: var(--text-4xl);
+    font-size: var(--text-6xl);
   }
   h3 {
+    font-size: var(--text-4xl);
+  }
+  h4 {
     font-size: var(--text-2xl);
+  }
+  h5 {
+    font-size: var(--text-xl);
   }
 }
 
