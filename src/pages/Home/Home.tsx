@@ -43,6 +43,7 @@ export const Home: FC = () => {
       >
         <h2>Work Experience</h2>
         <h3>Worlds</h3>
+        <div>Feb. 2019 - Present</div>
         <ul>
           <li>
             <h4>UI Team Lead</h4>
@@ -103,6 +104,13 @@ export const Home: FC = () => {
             </div>
           </li>
         </ul>
+      </section>
+      <section id="education" className="h-full p-10 items-center">
+        <h2>Education</h2>
+        <h3>Bachelor of Science in Computer Science</h3>
+        <h4>The Univeristy of Texas At Dallas</h4>
+        <div>Aug. 2016 - May 2019</div>
+        <div>GPA: 3.725 - Cum Laude</div>
       </section>
     </div>
   );
