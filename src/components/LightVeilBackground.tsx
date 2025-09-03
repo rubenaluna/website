@@ -75,7 +75,7 @@ void main(){
 }
 `;
 
-export interface DarkVeilBackgroundProps
+export interface LightVeilBackgroundProps
   extends React.HTMLAttributes<HTMLDivElement> {
   hueShift?: number;
   noiseIntensity?: number;
@@ -86,9 +86,9 @@ export interface DarkVeilBackgroundProps
   resolutionScale?: number;
 }
 
-export const DarkVeilBackground = forwardRef<
+export const LightVeilBackground = forwardRef<
   HTMLDivElement,
-  DarkVeilBackgroundProps
+  LightVeilBackgroundProps
 >(
   (
     {
@@ -192,4 +192,4 @@ export const DarkVeilBackground = forwardRef<
   }
 );
 
-DarkVeilBackground.displayName = "DarkVeilBackground";
+LightVeilBackground.displayName = "LightVeilBackground";

@@ -1,44 +1,68 @@
-import { DarkVeilBackground } from "@/components/ui/shadcn-io/dark-veil-background";
-import { useHomeTimeline } from "@/lib/use-home-timeline";
+import { Clock } from "@/components/Clock";
+import { DarkVeilBackground } from "@/components/DarkVeilBackground";
+import { LightVeilBackground } from "@/components/LightVeilBackground";
+import { useAboutMeTimeline } from "@/lib/use-about-me-timeline";
+import { useHeroTimeline } from "@/lib/use-hero-timeline";
+import { mdiMenu } from "@mdi/js";
+import Icon from "@mdi/react";
 import { type FC } from "react";
 
 export const Home: FC = () => {
-  useHomeTimeline();
+  useHeroTimeline();
+  useAboutMeTimeline();
 
   return (
-    <div className="h-full text-black">
-      <DarkVeilBackground
-        className="background fixed opacity-0"
+    <div className="h-full">
+      <LightVeilBackground
+        className="background-light fixed"
         hueShift={0}
         scanlineIntensity={0.5}
         scanlineFrequency={1}
         noiseIntensity={0.1}
       />
+
+      <DarkVeilBackground
+        className="background-dark fixed"
+        hueShift={0}
+        scanlineIntensity={0.5}
+        scanlineFrequency={1}
+        noiseIntensity={0.1}
+      />
+
       <div className="w-full h-full absolute">
-        <div className="fixed w-full flex justify-center p-5">
-          <div className="logo">RL</div>
+        <div className="navbar fixed w-full flex justify-between p-5">
+          <Clock />
+          <div className="logo flex w-1/3 justify-center">RL</div>
+          <div className="final w-1/3 flex justify-end">
+            <Icon path={mdiMenu} size={1} />
+          </div>
         </div>
 
-        <section id="hero" className="h-full p-5 flex flex-col justify-center">
-          <div className="final h-full text-[1vw] flex items-end">
-            <span>Full Stack Web Developer</span>
-          </div>
-          <div className="flex h-full justify-center items-end">
-            <div className="name text-[16vw]">RUBEN LUNA</div>
+        <section id="hero" className="hero h-full p-5">
+          <div className="hero__content flex flex-col justify-center text-black w-full h-full">
+            <div className="final h-full text-[1vw] flex items-end">
+              <span>Full Stack Web Developer</span>
+            </div>
+            <div className="flex h-full justify-center items-end">
+              <span className="name text-[16vw]">RUBEN LUNA</span>
+            </div>
           </div>
         </section>
 
-        <section id="aboutme" className="h-full p-10 flex items-center">
+        <section
+          id="aboutme"
+          className="about-me h-full p-10 flex items-center"
+        >
           <div>
             <h2>About Me</h2>
-            <div>
+            <p className="about-me__content text-[2vw]">
               I'm a full-stack software enginner with over five years of
               experience in both front-end and back-end web development. I have
               a proven track record of managing teams and leading projects.
-            </div>
+            </p>
           </div>
 
-          <img className="mt-auto -mb-10 -mr-10" src="headshot.png" />
+          {/* <img className="mt-auto -mb-10 -mr-10" src="headshot.png" /> */}
         </section>
 
         <section
