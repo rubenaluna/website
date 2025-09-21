@@ -1,81 +1,104 @@
 import { useGSAP } from "@gsap/react";
-import gsap, { Power1 } from "gsap";
+import gsap, { Power1, Power2 } from "gsap";
 
 export const useHeroTimeline = () => {
   useGSAP(() => {
     const timeline = gsap.timeline({ paused: false });
 
+    // Initially hide all elements except logo
     timeline
       .set(".logo", {
-        position: "absolute",
-        top: "50vh",
-        left: "50vw",
+        position: "fixed",
+        top: "50%",
+        left: "50%",
         transform: "translate(-50%, -50%)",
         opacity: 0,
       })
-      .set(".background-light", {
+      .set(".name", {
         opacity: 0,
       })
-      .to(".logo", {
-        position: "absolute",
-        top: "50vh",
-        left: "50vw",
-        transform: "translate(-50%, -50%)",
-        opacity: 1,
-        duration: 1,
+      .set(".final", {
+        opacity: 0,
       })
+      .set(".navbar", {
+        opacity: 0,
+      })
+      .set(".background-dark", {
+        opacity: 0,
+      });
+
+    // Logo fades in first
+    timeline.to(".logo", {
+      opacity: 1,
+      duration: 1,
+      ease: Power1.easeOut,
+    });
+
+    // Logo transitions to center of navbar and DarkVeilBackground fades in
+    timeline
       .to(
         ".logo",
         {
-          top: "auto",
-          ease: Power1.easeInOut,
-          transform: "translate(-50%, 0%)",
-          duration: 3,
+          top: "1.5rem",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          duration: 2.5,
+          ease: Power2.easeInOut,
         },
-        "post-splash"
+        "background"
       )
-      .set(".logo", {
-        position: "relative",
-        left: "auto",
-        transform: "translate(0%, 0%)",
-      });
+      .to(
+        ".background-dark",
+        {
+          opacity: 0.5,
+          duration: 2,
+          ease: Power1.easeInOut,
+        },
+        "background"
+      );
 
+    // Fix logo position as soon as it reaches navbar center
+    timeline.set(".logo", {
+      position: "fixed",
+      top: "1.5rem",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 50,
+    });
+
+    // Once logo reaches navbar center, fade in name first
     timeline.to(
-      ".background-light",
+      ".name",
       {
         opacity: 1,
-        ease: Power1.easeInOut,
-        duration: 3,
+        duration: 0.8,
+        ease: Power1.easeOut,
       },
-      "post-splash"
+      "name"
     );
 
+    // Then fade in everything else including navbar
     timeline
-      .set(
-        ".name",
-        {
-          opacity: 0,
-        },
-        0
-      )
-      .to(".name", {
-        opacity: 1,
-        ease: Power1.easeInOut,
-        duration: 1,
-      });
-
-    timeline
-      .set(
+      .to(
         ".final",
         {
-          opacity: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: Power1.easeOut,
         },
-        0
+        "final"
       )
-      .to(".final", {
-        opacity: 1,
-      });
+      .to(
+        ".navbar",
+        {
+          opacity: 1,
+          duration: 0.8,
+          ease: Power1.easeOut,
+        },
+        "final"
+      );
 
+    // Hero section scroll animations
     timeline.to(".hero", {
       opacity: 0,
       scrollTrigger: {

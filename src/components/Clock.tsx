@@ -9,7 +9,7 @@ export const Clock = () => {
   }, []);
 
   return (
-    <span className="final w-1/3">
+    <span className="mono text-sm whitespace-nowrap">
       {formatInTimeZone(time, "America/Chicago", "hh:mm:ss aa zzz")}
     </span>
   );
