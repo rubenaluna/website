@@ -100,6 +100,7 @@ export const useHeroTimeline = () => {
     // Hero content fade out animation while pinned
     timeline.to(".hero", {
       opacity: 0,
+      scale: 0.9,
       scrollTrigger: {
         trigger: ".about",
         start: "top bottom",

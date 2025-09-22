@@ -2,8 +2,8 @@ import { type FC } from "react";
 
 export const ExperienceSection: FC = () => {
   return (
-    <section id="experience" className="py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="experience" className="experience w-screen h-screen">
+      <div className="max-w-7xl mx-auto h-full">
         <div className="space-y-16">
           <div className="text-center space-y-4">
             <h2 className="text-5xl font-normal">Work Experience</h2>

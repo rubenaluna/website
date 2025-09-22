@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import gsap, { Power2 } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
@@ -7,71 +7,52 @@ export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
+    const timeline = gsap.timeline({ paused: false });
+
     // Pin about-header to bottom of navbar when it reaches that position
+
+    // Add subtle fade-in effect for about content when scrolling up
+    gsap.set(".about-header", { opacity: 0 });
+    gsap.set(".about-body", { opacity: 0 });
+
     ScrollTrigger.create({
       trigger: ".about-header",
       start: "top top+=48px", // When header reaches bottom of navbar (48px = 3rem)
-      end: "bottom+=1000px top+=48px", // End when section ends
-      pin: true,
+      end: "bottom top+=48px", // End when section ends
       scrub: true,
       pinSpacing: false,
+      animation: gsap.to(".about-header", {
+        opacity: 1,
+        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+      }),
       toggleActions: "play none none reverse",
-      onToggle: (self) => {
-        // Add/remove pinned class for styling
-        if (self.isActive) {
-          document.querySelector(".about-header")?.classList.add("is-pinned");
-        } else {
-          document
-            .querySelector(".about-header")
-            ?.classList.remove("is-pinned");
-        }
-      },
     });
 
-    // Add subtle fade-in effect for about content when scrolling up
-    gsap.set(".about-title", { opacity: 0 });
-    gsap.set(".about-content", { opacity: 0 });
+    ScrollTrigger.create({
+      trigger: ".about",
+      start: "top top+=48px",
+      end: "bottom top+=48px",
+      pin: true,
+      scrub: true,
+      toggleActions: "play none none reverse",
+    });
 
     ScrollTrigger.create({
       trigger: ".about-title",
-      start: "top bottom",
-      end: "bottom bottom",
-      scrub: true, // Smooth scrubbing
-      animation: gsap.to(".about-title", {
-        opacity: 1,
-        ease: Power2.easeInOut,
-      }),
-      toggleActions: "play none none reverse",
-    });
-
-    ScrollTrigger.create({
-      trigger: ".about-content",
-      start: "top center",
-      end: "bottom bottom",
-      scrub: true,
-      animation: gsap.to(".about-content", {
-        opacity: 1,
-        ease: Power2.easeInOut,
-      }),
-      toggleActions: "play none none reverse",
-    });
-
-    ScrollTrigger.create({
-      trigger: ".about-body",
       start: "top top+=96px",
-      end: "bottom bottom",
-      pin: true,
+      end: "top top",
       scrub: true,
-      pinSpacing: true,
       toggleActions: "play none none reverse",
+      animation: gsap.to(".about-body", {
+        opacity: 1,
+      }),
     });
 
     ScrollTrigger.create({
       trigger: ".about-skill-be",
-      start: "top center",
-      end: "bottom center",
+      start: "top top+=96px",
+      end: "bottom top",
       scrub: true,
-      pinSpacing: false,
       toggleActions: "play none none reverse",
       onToggle: (self) => {
         if (self.isActive) {
@@ -86,10 +67,9 @@ export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
 
     ScrollTrigger.create({
       trigger: ".about-skill-fe",
-      start: "top center",
-      end: "bottom center",
+      start: "top top+=96px",
+      end: "bottom top",
       scrub: true,
-      pinSpacing: false,
       toggleActions: "play none none reverse",
       onToggle: (self) => {
         if (self.isActive) {
@@ -99,6 +79,21 @@ export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
 
       onLeaveBack: () => {
         setSkills(["Back-End Development"]);
+      },
+    });
+
+    // Hero content fade out animation while pinned
+    timeline.to(".about", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".experience",
+        start: "top top+=48px",
+        end: "top top",
+        pin: ".about",
+        scrub: true,
+        markers: true,
+        pinSpacing: false,
+        toggleActions: "play none none reverse",
       },
     });
   });
