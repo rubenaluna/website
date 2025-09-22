@@ -23,7 +23,7 @@ export const useHeroTimeline = () => {
       .set(".navbar", {
         opacity: 0,
       })
-      .set(".background-dark", {
+      .set(".background", {
         opacity: 0,
       });
 
@@ -48,7 +48,7 @@ export const useHeroTimeline = () => {
         "background"
       )
       .to(
-        ".background-dark",
+        ".background",
         {
           opacity: 0.5,
           duration: 2,
@@ -63,7 +63,6 @@ export const useHeroTimeline = () => {
       top: "1.5rem",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      zIndex: 50,
     });
 
     // Once logo reaches navbar center, fade in name first
@@ -98,25 +97,17 @@ export const useHeroTimeline = () => {
         "final"
       );
 
-    // Hero section scroll animations
+    // Hero content fade out animation while pinned
     timeline.to(".hero", {
       opacity: 0,
       scrollTrigger: {
-        trigger: ".about-me",
+        trigger: ".about",
         start: "top bottom",
-        end: "+=50% bottom",
-        pin: ".hero__content",
+        end: "top center",
+        pin: ".hero",
+        pinSpacing: false,
         scrub: true,
-      },
-    });
-
-    timeline.to(".hero__content", {
-      scale: 0.975,
-      scrollTrigger: {
-        trigger: ".about-me",
-        start: "top bottom",
-        end: "+=50% bottom",
-        scrub: true,
+        toggleActions: "play none none reverse",
       },
     });
   });

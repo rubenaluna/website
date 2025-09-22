@@ -30,22 +30,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Hide scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #404040;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #525252;
+/* For Firefox */
+html {
+  scrollbar-width: none;
 }
 
 /* Typography improvements */
@@ -200,4 +192,21 @@ a:focus-visible {
 ::selection {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
+}
+
+/* Pinned about header styles */
+.about-header {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid transparent; /* Start with transparent border */
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* When pinned by GSAP ScrollTrigger */
+.about-header.is-pinned {
+  position: fixed;
+  top: 0; /* Height of navbar (3rem = 48px) */
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
