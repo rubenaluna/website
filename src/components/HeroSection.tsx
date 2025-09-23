@@ -6,7 +6,7 @@ export const HeroSection: FC = () => {
   return (
     <section
       id="hero"
-      className="hero w-screen h-screen flex flex-col items-center justify-center"
+      className="hero w-screen h-[calc(100vh-48px)] flex flex-col items-center justify-center z-1"
     >
       <div className="final text-sm font-normal uppercase text-gray-400 mono">
         Software Engineer

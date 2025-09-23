@@ -196,17 +196,43 @@ a:focus-visible {
 
 /* Pinned about header styles */
 .about-header {
-  position: relative;
-  z-index: 10;
   border-bottom: 1px solid transparent; /* Start with transparent border */
   transition: border-color 0.3s ease-in-out;
 }
 
-/* When pinned by GSAP ScrollTrigger */
-.about-header.is-pinned {
-  position: fixed;
-  top: 0; /* Height of navbar (3rem = 48px) */
-  left: 0;
-  right: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.experience-header {
+  border-bottom: 1px solid transparent; /* Start with transparent border */
+  transition: border-color 0.3s ease-in-out;
+}
+
+.pin-spacer {
+  z-index: 1;
+}
+
+/* Fix for pinned elements blocking navbar clicks */
+.hero {
+  pointer-events: none;
+}
+
+.about {
+  pointer-events: none;
+}
+
+.experience {
+  pointer-events: none;
+}
+
+/* Ensure navbar can receive clicks */
+.navbar {
+  pointer-events: auto;
+}
+
+/* Make interactive elements within pinned sections clickable */
+.hero a,
+.about a,
+.experience a,
+.hero button,
+.about button,
+.experience button {
+  pointer-events: auto;
 }

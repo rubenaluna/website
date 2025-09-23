@@ -5,17 +5,47 @@ import { HeroSection } from "@/components/HeroSection";
 import { Logo } from "@/components/Logo";
 import { Navigation } from "@/components/Navigation";
 
-import { type FC } from "react";
+import { type FC, useEffect } from "react";
 
 export const Home: FC = () => {
+  useEffect(() => {
+    const handleGlobalClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      console.log("🔍 Global click detected:", {
+        element: target,
+        tagName: target.tagName,
+        className: target.className,
+        id: target.id,
+        textContent: target.textContent?.trim(),
+        href: target.getAttribute("href"),
+        parentElement: target.parentElement?.tagName,
+        parentClassName: target.parentElement?.className,
+        isNavbar: target.closest(".navbar"),
+        isNavLink: target.closest('a[href^="#"]'),
+        eventPhase: event.eventPhase,
+        bubbles: event.bubbles,
+        defaultPrevented: event.defaultPrevented,
+        stopPropagation: event.stopPropagation,
+      });
+    };
+
+    document.addEventListener("click", handleGlobalClick, true); // Use capture phase
+
+    return () => {
+      document.removeEventListener("click", handleGlobalClick, true);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <DarkVeilBackground
         className="background fixed"
-        hueShift={0}
         scanlineIntensity={1.0}
         scanlineFrequency={0.5}
         noiseIntensity={0.1}
+        warpAmount={0.5}
+        speed={1}
+        resolutionScale={1}
       />
 
       <div className="w-full relative text-white">

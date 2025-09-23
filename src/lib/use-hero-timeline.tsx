@@ -104,7 +104,7 @@ export const useHeroTimeline = () => {
       scrollTrigger: {
         trigger: ".about",
         start: "top bottom",
-        end: "top center",
+        end: "top top",
         pin: ".hero",
         pinSpacing: false,
         scrub: true,

@@ -1,16 +1,22 @@
+import { useExperienceTimeline } from "@/lib/use-experience-timeline";
 import { type FC } from "react";
 
 export const ExperienceSection: FC = () => {
+  useExperienceTimeline();
+
   return (
     <section id="experience" className="experience w-screen h-screen">
-      <div className="max-w-7xl mx-auto h-full">
-        <div className="space-y-16">
-          <div className="text-center space-y-4">
-            <h2 className="text-5xl font-normal">Work Experience</h2>
-            <div className="w-16 h-1 bg-white mx-auto"></div>
-          </div>
+      <div className="experience-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
+        <div className="w-3 h-3 bg-white"></div>
+        <h2 className="text-lg uppercase mono text-gray-400">EXPERIENCE</h2>
+      </div>
+      <div className="experience-body max-w-7xl mx-auto h-full">
+        <div>
+          <h3 className="experience-title mono text-4xl lg:text-5xl leading-tight uppercase py-6 font-light text-gray-200">
+            HISTORY
+          </h3>
 
-          <div className="space-y-12">
+          <div className="experience-content">
             <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
                 <div>
@@ -18,11 +24,6 @@ export const ExperienceSection: FC = () => {
                     Worlds Enterprises Inc.
                   </h3>
                   <p className="text-gray-400 mono">Feb. 2019 - Present</p>
-                </div>
-                <div className="mt-4 lg:mt-0">
-                  <span className="px-4 py-2 bg-white/10 rounded-full text-sm font-medium">
-                    Full-time
-                  </span>
                 </div>
               </div>
 

@@ -38,7 +38,7 @@ export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
     });
 
     ScrollTrigger.create({
-      trigger: ".about-title",
+      trigger: ".about-body",
       start: "top top+=96px",
       end: "top top",
       scrub: true,
@@ -82,6 +82,26 @@ export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
       },
     });
 
+    ScrollTrigger.create({
+      trigger: ".about-skill-ops",
+      start: "top top+=96px",
+      end: "bottom top",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onToggle: (self) => {
+        if (self.isActive) {
+          setSkills([
+            "Back-End Development",
+            "Front-End Development",
+            "Operations",
+          ]);
+        }
+      },
+      onLeaveBack: () => {
+        setSkills(["Back-End Development", "Front-End Development"]);
+      },
+    });
+
     // Hero content fade out animation while pinned
     timeline.to(".about", {
       opacity: 0,
@@ -91,7 +111,6 @@ export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
         end: "top top",
         pin: ".about",
         scrub: true,
-        markers: true,
         pinSpacing: false,
         toggleActions: "play none none reverse",
       },
