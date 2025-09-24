@@ -30,16 +30,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* For Firefox */
-html {
-  scrollbar-width: none;
-}
-
 /* Typography improvements */
 @layer base {
   h1 {

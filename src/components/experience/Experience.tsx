@@ -1,7 +1,7 @@
-import { useExperienceTimeline } from "@/lib/use-experience-timeline";
 import { type FC } from "react";
+import { useExperienceTimeline } from "./use-experience-timeline";
 
-export const ExperienceSection: FC = () => {
+export const Experience: FC = () => {
   useExperienceTimeline();
 
   return (

@@ -1,7 +1,7 @@
-import { useHeroTimeline } from "@/lib/use-hero-timeline";
 import { type FC } from "react";
+import { useHeroTimeline } from "./use-hero-timeline";
 
-export const HeroSection: FC = () => {
+export const Hero: FC = () => {
   useHeroTimeline();
   return (
     <section

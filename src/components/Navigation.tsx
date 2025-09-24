@@ -16,6 +16,9 @@ export const Navigation: FC = () => {
             <a href="#about" className="hover:text-gray-300 transition-colors">
               About
             </a>
+            <a href="#skills" className="hover:text-gray-300 transition-colors">
+              Skills
+            </a>
             <a
               href="#experience"
               className="hover:text-gray-300 transition-colors"

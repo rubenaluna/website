@@ -2,11 +2,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
+export const useAboutMeTimeline = () => {
   useGSAP(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
-
     const timeline = gsap.timeline({ paused: false });
 
     // Pin about-header to bottom of navbar when it reaches that position
@@ -48,65 +45,10 @@ export const useAboutMeTimeline = (setSkills: (skills: string[]) => void) => {
       }),
     });
 
-    ScrollTrigger.create({
-      trigger: ".about-skill-be",
-      start: "top top+=96px",
-      end: "bottom top",
-      scrub: true,
-      toggleActions: "play none none reverse",
-      onToggle: (self) => {
-        if (self.isActive) {
-          setSkills(["Back-End Development"]);
-        }
-      },
-
-      onLeaveBack: () => {
-        setSkills([]);
-      },
-    });
-
-    ScrollTrigger.create({
-      trigger: ".about-skill-fe",
-      start: "top top+=96px",
-      end: "bottom top",
-      scrub: true,
-      toggleActions: "play none none reverse",
-      onToggle: (self) => {
-        if (self.isActive) {
-          setSkills(["Back-End Development", "Front-End Development"]);
-        }
-      },
-
-      onLeaveBack: () => {
-        setSkills(["Back-End Development"]);
-      },
-    });
-
-    ScrollTrigger.create({
-      trigger: ".about-skill-ops",
-      start: "top top+=96px",
-      end: "bottom top",
-      scrub: true,
-      toggleActions: "play none none reverse",
-      onToggle: (self) => {
-        if (self.isActive) {
-          setSkills([
-            "Back-End Development",
-            "Front-End Development",
-            "Operations",
-          ]);
-        }
-      },
-      onLeaveBack: () => {
-        setSkills(["Back-End Development", "Front-End Development"]);
-      },
-    });
-
-    // Hero content fade out animation while pinned
     timeline.to(".about", {
       opacity: 0,
       scrollTrigger: {
-        trigger: ".experience",
+        trigger: ".skills",
         start: "top top+=48px",
         end: "top top",
         pin: ".about",

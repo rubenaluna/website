@@ -4,14 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const useExperienceTimeline = () => {
   useGSAP(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
-
-    const timeline = gsap.timeline({ paused: false });
-
-    // Pin about-header to bottom of navbar when it reaches that position
-
-    // Add subtle fade-in effect for about content when scrolling up
     gsap.set(".experience-header", { opacity: 0 });
     gsap.set(".experience-body", { opacity: 0 });
 

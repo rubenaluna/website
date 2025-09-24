@@ -1,9 +1,10 @@
-import { AboutSection } from "@/components/AboutSection";
-import { DarkVeilBackground } from "@/components/DarkVeilBackground";
-import { ExperienceSection } from "@/components/ExperienceSection";
-import { HeroSection } from "@/components/HeroSection";
+import { Background } from "@/components/Background";
 import { Logo } from "@/components/Logo";
 import { Navigation } from "@/components/Navigation";
+import { About } from "@/components/about/About";
+import { Experience } from "@/components/experience/Experience";
+import { Hero } from "@/components/hero/Hero";
+import { Skills } from "@/components/skills/skills";
 
 import { type FC, useEffect } from "react";
 
@@ -38,7 +39,7 @@ export const Home: FC = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <DarkVeilBackground
+      <Background
         className="background fixed"
         scanlineIntensity={1.0}
         scanlineFrequency={0.5}
@@ -51,10 +52,11 @@ export const Home: FC = () => {
       <div className="w-full relative text-white">
         <Logo />
         <Navigation />
-        <HeroSection />
+        <Hero />
 
-        <AboutSection />
-        <ExperienceSection />
+        <About />
+        <Skills />
+        <Experience />
 
         {/* 
         <section id="education" className="py-24 px-6 bg-gray-900/50">
