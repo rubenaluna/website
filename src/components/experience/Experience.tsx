@@ -5,141 +5,105 @@ export const Experience: FC = () => {
   useExperienceTimeline();
 
   return (
-    <section id="experience" className="experience w-screen h-screen">
+    <div id="experience" className="experience w-screen">
       <div className="experience-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
         <div className="w-3 h-3 bg-white"></div>
         <h2 className="text-lg uppercase mono text-gray-400">EXPERIENCE</h2>
       </div>
-      <div className="experience-body max-w-7xl mx-auto h-full">
-        <div>
-          <h3 className="experience-title mono text-4xl lg:text-5xl leading-tight uppercase py-6 font-light text-gray-200">
-            HISTORY
-          </h3>
 
-          <div className="experience-content">
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+      <section className="experience-body max-w-6xl h-full mx-auto px-6 py-12">
+        <h3 className="experience-title mono text-4xl lg:text-5xl leading-tight uppercase py-6 font-light text-gray-200 mb-16">
+          WORK HISTORY
+        </h3>
+
+        <div className="timeline-container relative">
+          <div className="relative flex items-start">
+            <div className="w-full">
+              <div className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300">
                 <div>
-                  <h3 className="text-2xl font-normal mb-2">
-                    Worlds Enterprises Inc.
-                  </h3>
-                  <p className="text-gray-400 mono">Feb. 2019 - Present</p>
-                </div>
-              </div>
-
-              <div className="space-y-8">
-                <div className="border-l-2 border-white/20 pl-6">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                    <h4 className="text-xl font-normal">UI Team Lead</h4>
-                    <span className="text-sm text-gray-400 mono">
-                      Apr. 2025 - Present
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                    <img src="/worlds-logo.png" alt="Worlds" className="w-64" />
+                    <span className="text-sm text-gray-400 mono bg-white/10 px-3 py-1 rounded-full">
+                      Feb. 2019 - Today
                     </span>
                   </div>
-                  <div className="space-y-4">
-                    <p className="text-gray-300 leading-relaxed">
-                      Led the development of an AI chat interface written in
-                      TypeScript and React, which communicates with an LLM
-                      (Gemma) to find and describe objects that have been
-                      previously detected by Worlds' computer vision models.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      Led the development of AIMS, a monitoring interface for
-                      the US Air Force using React and TypeScript, ensuring
-                      real-time security compliance on military bases.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      Developed Worlds NQ using React and TypeScript, enabling
-                      data scientists to efficiently tag training data for
-                      object detection models. Decreased model deployment time
-                      by about 75%.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      Led a team of two engineers, translating product goals
-                      into requirements, features, and tasks. Prioritized and
-                      assigned work while mentoring team members and conducting
-                      code reviews to ensure delivery.
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {[
-                      "TypeScript",
-                      "React",
-                      "LLM Integration",
-                      "Team Leadership",
-                      "Agile",
-                    ].map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 bg-white/10 rounded-full text-sm"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="border-l-2 border-white/20 pl-6">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                    <h4 className="text-xl font-normal">Software Engineer</h4>
-                    <span className="text-sm text-gray-400 mono">
-                      Feb. 2019 - Apr. 2025
-                    </span>
+                  <div>
+                    <h4 className="text-xl mono uppercase font-light">
+                      UI Team Lead
+                    </h4>
+
+                    <ul className="space-y-4 mb-6 list-disc list-inside">
+                      <li className="text-gray-300 leading-relaxed">
+                        Led the development of an AI chat interface written in
+                        TypeScript and React, which communicates with an LLM
+                        (Gemma) to find and describe objects that have been
+                        previously detected by Worlds' computer vision models.
+                      </li>
+                      <li className="text-gray-300 leading-relaxed">
+                        Led the development of AIMS, a monitoring interface for
+                        the US Air Force using React and TypeScript, ensuring
+                        real-time security compliance on military bases.
+                      </li>
+                      <li className="text-gray-300 leading-relaxed">
+                        Developed Worlds NQ using React and TypeScript, enabling
+                        data scientists to efficiently tag training data for
+                        object detection models. Decreased model deployment time
+                        by about 75%.
+                      </li>
+                      <li className="text-gray-300 leading-relaxed">
+                        Led a team of two engineers, translating product goals
+                        into requirements, features, and tasks. Prioritized and
+                        assigned work while mentoring team members and
+                        conducting code reviews to ensure delivery.
+                      </li>
+                    </ul>
                   </div>
-                  <div className="space-y-4">
-                    <p className="text-gray-300 leading-relaxed">
-                      Led the design and development of the Worlds API and its
-                      documentation: A GraphQL API written in Java Spring Boot
-                      that exposes data generated by the Worlds platform to the
-                      public. Enables forward-deployed and client engineering
-                      teams to self-serve integrations, reducing the internal
-                      engineering team's bespoke solution workload by about 90%.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      Designed and developed Worlds Navigator in TypeScript,
-                      React, and Babylon.js, which simulates clients' site
-                      activity and events in real-time within their digital
-                      twins.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      Proposed, designed, and developed Worlds Builder using
-                      TypeScript, React and Babylon.js on the front-end and Java
-                      and Spring Boot on the back-end. Allows internal support
-                      teams and clients to create and maintain digital twins.
-                      Resulted in a 50% decrease in client onboarding time.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      Developed Worlds Calibration, a Python microservice that
-                      enables the real-time simulation of clients' digital twins
-                      by attaching global positioning data to objects detected
-                      by computer vision models. The underlying logic has been
-                      incorporated into multiple awarded patents.
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {[
-                      "Java",
-                      "Spring Boot",
-                      "GraphQL",
-                      "TypeScript",
-                      "React",
-                      "Babylon.js",
-                      "Python",
-                      "PostgreSQL",
-                    ].map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 bg-white/10 rounded-full text-sm"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+
+                  <div>
+                    <h4 className="text-xl font-light mono uppercase">
+                      Software Engineer
+                    </h4>
+
+                    <ul className="space-y-4 mb-6 list-disc list-inside">
+                      <li className="text-gray-300 leading-relaxed">
+                        Led the design and development of the Worlds API and its
+                        documentation: A GraphQL API written in Java Spring Boot
+                        that exposes data generated by the Worlds platform to
+                        the public. Enables forward-deployed and client
+                        engineering teams to self-serve integrations, reducing
+                        the internal engineering team's bespoke solution
+                        workload by about 90%.
+                      </li>
+                      <li className="text-gray-300 leading-relaxed">
+                        Designed and developed Worlds Navigator in TypeScript,
+                        React, and Babylon.js, which simulates clients' site
+                        activity and events in real-time within their digital
+                        twins.
+                      </li>
+                      <li className="text-gray-300 leading-relaxed">
+                        Proposed, designed, and developed Worlds Builder using
+                        TypeScript, React and Babylon.js on the front-end and
+                        Java and Spring Boot on the back-end. Allows internal
+                        support teams and clients to create and maintain digital
+                        twins. Resulted in a 50% decrease in client onboarding
+                        time.
+                      </li>
+                      <li className="text-gray-300 leading-relaxed">
+                        Developed Worlds Calibration, a Python microservice that
+                        enables the real-time simulation of clients' digital
+                        twins by attaching global positioning data to objects
+                        detected by computer vision models. The underlying logic
+                        has been incorporated into multiple awarded patents.
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };

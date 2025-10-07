@@ -17,6 +17,11 @@ export const About: FC = () => {
           className="about-content min-h-128 flex flex-col bg-white/5 rounded-2xl p-8 border border-white/10"
         >
           <div className="w-full h-full flex justify-center items-center space-x-4">
+            <img
+              className="w-[250px] h-[250px] rounded-full object-cover bg-white/5 border border-white/10"
+              src="/headshot.png"
+              alt="Ruben Luna"
+            />
             <div className="space-y-4">
               <h4 className="about-title mono text-4xl lg:text-5xl leading-tight uppercase font-light text-gray-200">
                 {getGreeting()}
@@ -31,12 +36,6 @@ export const About: FC = () => {
 
               <div className="w-1/2 h-1 bg-white mx-auto"></div>
             </div>
-
-            <img
-              className="w-[250px] h-[250px] rounded-full object-cover"
-              src="/headshot.jpeg"
-              alt="Ruben Luna"
-            />
           </div>
         </section>
       </div>

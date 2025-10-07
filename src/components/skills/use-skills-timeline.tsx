@@ -28,6 +28,7 @@ export const useSkillsTimeline = (setSkills: (skills: string[]) => void) => {
       end: "bottom top+=48px",
       pin: true,
       scrub: true,
+      pinSpacing: false,
       toggleActions: "play none none reverse",
     });
 

@@ -41,14 +41,17 @@ export const Skills = () => {
               </AccordionTrigger>
               <AccordionContent className="text-minimal-light">
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Java</div> <div>-</div> <div>Python</div> <div>-</div>
+                  <div>Java</div> <div className="text-gray-500">•</div>
+                  <div>Python</div> <div className="text-gray-500">•</div>
                   <div>C#</div>
                 </div>
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Spring Boot</div>
+                  <div>Spring Boot</div> <div className="text-gray-500">•</div>
+                  <div>Node.js</div>
                 </div>
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>REST</div> <div>-</div> <div>GraphQL</div> <div>- </div>
+                  <div>REST</div> <div className="text-gray-500">•</div>
+                  <div>GraphQL</div> <div className="text-gray-500">•</div>
                   <div>gRPC</div>
                 </div>
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
@@ -66,12 +69,14 @@ export const Skills = () => {
               <AccordionContent className="text-minimal-light">
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
                   <div>JavaScript</div>
-                  <div>-</div> <div>TypeScript</div> <div>-</div>
-                  <div>HTML</div> <div>CSS</div>
+                  <div className="text-gray-500">•</div> <div>TypeScript</div>
+                  <div className="text-gray-500">•</div>
+                  <div>HTML/CSS</div>
                 </div>
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>React</div> <div>-</div> <div>Tailwind CSS</div>
-                  <div>-</div> <div>GSAP</div>
+                  <div>React</div> <div className="text-gray-500">•</div>
+                  <div>Tailwind CSS</div>
+                  <div className="text-gray-500">•</div> <div>GSAP</div>
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -84,17 +89,21 @@ export const Skills = () => {
               </AccordionTrigger>
               <AccordionContent className="text-minimal-light">
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Kubernetes</div> <div>-</div> <div>Docker</div>
-                  <div>-</div> <div>Git</div>
+                  <div>Kubernetes</div> <div className="text-gray-500">•</div>
+                  <div>Docker</div>
+                  <div className="text-gray-500">•</div> <div>Git</div>
                 </div>
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Redis</div> <div>-</div> <div>RabbitMQ</div>
+                  <div>Redis</div> <div className="text-gray-500">•</div>
+                  <div>RabbitMQ</div>
                 </div>
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>AWS</div> <div>-</div> <div>Azure</div>
+                  <div>AWS</div> <div className="text-gray-500">•</div>
+                  <div>Azure</div>
                 </div>
                 <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>GitHub</div> <div>-</div> <div>Jira</div> <div>-</div>
+                  <div>GitHub</div> <div className="text-gray-500">•</div>
+                  <div>Jira</div> <div className="text-gray-500">•</div>
                   <div>Cursor</div>
                 </div>
               </AccordionContent>

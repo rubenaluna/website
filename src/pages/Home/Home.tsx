@@ -4,41 +4,13 @@ import { Navigation } from "@/components/Navigation";
 import { About } from "@/components/about/About";
 import { Experience } from "@/components/experience/Experience";
 import { Hero } from "@/components/hero/Hero";
-import { Skills } from "@/components/skills/skills";
+import { Skills } from "@/components/skills/Skills";
 
-import { type FC, useEffect } from "react";
+import { type FC } from "react";
 
 export const Home: FC = () => {
-  useEffect(() => {
-    const handleGlobalClick = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      console.log("🔍 Global click detected:", {
-        element: target,
-        tagName: target.tagName,
-        className: target.className,
-        id: target.id,
-        textContent: target.textContent?.trim(),
-        href: target.getAttribute("href"),
-        parentElement: target.parentElement?.tagName,
-        parentClassName: target.parentElement?.className,
-        isNavbar: target.closest(".navbar"),
-        isNavLink: target.closest('a[href^="#"]'),
-        eventPhase: event.eventPhase,
-        bubbles: event.bubbles,
-        defaultPrevented: event.defaultPrevented,
-        stopPropagation: event.stopPropagation,
-      });
-    };
-
-    document.addEventListener("click", handleGlobalClick, true); // Use capture phase
-
-    return () => {
-      document.removeEventListener("click", handleGlobalClick, true);
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="text-white">
       <Background
         className="background fixed"
         scanlineIntensity={1.0}
@@ -49,11 +21,11 @@ export const Home: FC = () => {
         resolutionScale={1}
       />
 
-      <div className="w-full relative text-white">
+      <div className="w-full">
         <Logo />
         <Navigation />
-        <Hero />
 
+        <Hero />
         <About />
         <Skills />
         <Experience />
