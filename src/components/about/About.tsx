@@ -1,4 +1,4 @@
-import { getGreeting } from "@/lib/utils";
+import { Brain, Globe, Layout, Server } from "lucide-react";
 import { type FC } from "react";
 import { useAboutMeTimeline } from "./use-about-me-timeline";
 
@@ -14,27 +14,117 @@ export const About: FC = () => {
       <div className="about-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
         <section
           id="about"
-          className="about-content min-h-128 flex flex-col bg-white/5 rounded-2xl p-8 border border-white/10"
+          className="about-content h-full flex flex-col justify-center"
         >
-          <div className="w-full h-full flex justify-center items-center space-x-4">
-            <img
-              className="w-[250px] h-[250px] rounded-full object-cover bg-white/5 border border-white/10"
-              src="/headshot.png"
-              alt="Ruben Luna"
-            />
-            <div className="space-y-4">
-              <h4 className="about-title mono text-4xl lg:text-5xl leading-tight uppercase font-light text-gray-200">
-                {getGreeting()}
-              </h4>
-              <p className="text-md text-gray-300">
-                I'm Ruben Luna, a software developer based out of the
-                Dallas-Fort Worth area of Texas. I have specialized in building
-                frictionless and intricate web applications for over six years.
-                My full-stack experience enables me to bring ideas to life from
-                back-end to front-end and concept to delivery.
-              </p>
+          <div className="flex justify-center items-center gap-6">
+            <div className="h-full flex flex-col space-y-4 flex-1 flex flex-col bg-white/5 rounded-2xl p-8 border border-white/10">
+              <h3 className="text-start mono uppercase font-light text-gray-200 mb-6">
+                This is me.
+              </h3>
+              <div className="h-full flex flex-col space-y-4 justify-center items-center">
+                <div className="flex justify-center items-center gap-6">
+                  <img
+                    className="w-[250px] h-[250px] rounded-full object-cover bg-white/5 border border-white/10"
+                    src="/headshot.png"
+                    alt="Ruben Luna"
+                  />
+                  <div className="space-y-4">
+                    <p className="font-bold text-md text-gray-300">
+                      I'm a software developer based out of the Dallas-Fort
+                      Worth area of Texas. I've specialized in building
+                      frictionless and intricate web applications in the
+                      artificial intelligence space for over six years.
+                    </p>
+                  </div>
+                </div>
+                <span className="font-light text-2xl text-gray-300">
+                  My full-stack experience enables me to bring ideas to life
+                  from back-end to front-end and concept to delivery.
+                </span>
+                <div className="w-1/2 h-1 bg-white mx-auto my-1"></div>
+              </div>
+            </div>
 
-              <div className="w-1/2 h-1 bg-white mx-auto"></div>
+            <div className="flex-1">
+              <div className="flex-1 bg-white/5 rounded-2xl p-8 border border-white/10">
+                <h3 className="mono text-2xl uppercase font-light text-gray-200 mb-6">
+                  Education
+                </h3>
+                <div>
+                  <div className="flex items-center gap-1">
+                    <img
+                      className="w-[100px]] h-[100px]"
+                      src="/utd-logo.png"
+                      alt="The University of Texas at Dallas"
+                    />
+
+                    <div>
+                      <h4 className="text-lg font-medium text-white">
+                        Bachelor of Science in Computer Science
+                      </h4>
+
+                      <p className="text-gray-300">
+                        The University of Texas at Dallas
+                      </p>
+
+                      <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full">
+                        Aug. 2015 - May. 2019
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 bg-white/5 rounded-2xl p-8 border border-white/10">
+                <h3 className="mono text-2xl uppercase font-light text-gray-200 mb-6">
+                  Interests
+                </h3>
+                <div className="grid grid-cols-2 grid-rows-2 gap-4">
+                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
+                    <Globe className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                    <div className="flex flex-col gap-1">
+                      <h4 className="text-lg font-medium text-white">
+                        Web Development
+                      </h4>
+                      <p className="text-sm text-gray-400">
+                        Building scalable web applications
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
+                    <Layout className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                    <div className="flex flex-col gap-1">
+                      <h4 className="text-lg font-medium text-white">
+                        Front-End Development
+                      </h4>
+                      <p className="text-sm text-gray-400">
+                        Implementing intuitive user experiences
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
+                    <Server className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                    <div className="flex flex-col gap-1">
+                      <h4 className="text-lg font-medium text-white">
+                        Back-End Development
+                      </h4>
+                      <p className="text-sm text-gray-400">
+                        Designing robust APIs and databases
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
+                    <Brain className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                    <div className="flex flex-col gap-1">
+                      <h4 className="text-lg font-medium text-white">
+                        Artificial Intelligence
+                      </h4>
+                      <p className="text-sm text-gray-400">
+                        Productionalizing artificial intelligence systems
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

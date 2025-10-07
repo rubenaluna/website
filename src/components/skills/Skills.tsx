@@ -23,9 +23,9 @@ export const Skills = () => {
           id="skills"
           className="skills-content min-h-128 flex flex-col justify-center items-center bg-white/5 rounded-2xl p-8 border border-white/10"
         >
-          <h4 className="skills-title mono text-4xl lg:text-5xl leading-tight uppercase font-light text-gray-200">
+          <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
             Full Stack Development
-          </h4>
+          </h3>
           <Accordion
             id="about-skills"
             className="w-full h-full flex justify-center items-center"
