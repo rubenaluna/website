@@ -1,16 +1,31 @@
+import { FaJava, FaMicrosoft } from "react-icons/fa";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { useState } from "react";
+  SiAmazonwebservices,
+  SiCss3,
+  SiDocker,
+  SiGit,
+  SiGithub,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiJira,
+  SiKubernetes,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPython,
+  SiRabbitmq,
+  SiReact,
+  SiRedis,
+  SiSpring,
+  SiTailwindcss,
+  SiTypescript,
+  SiVuedotjs,
+} from "react-icons/si";
+import { TbApi, TbBrandCSharp } from "react-icons/tb";
 import { useSkillsTimeline } from "./use-skills-timeline";
 
 export const Skills = () => {
-  const [skills, setSkills] = useState<string[]>([]);
-
-  useSkillsTimeline(setSkills);
+  useSkillsTimeline();
 
   return (
     <div className="skills w-screen h-screen">
@@ -18,97 +33,206 @@ export const Skills = () => {
         <div className="w-3 h-3 bg-white"></div>
         <h2 className="text-lg uppercase mono text-gray-400">SKILLS</h2>
       </div>
-      <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
-        <section
-          id="skills"
-          className="skills-content min-h-128 flex flex-col justify-center items-center bg-white/5 rounded-2xl p-8 border border-white/10"
-        >
-          <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
-            Full Stack Development
-          </h3>
-          <Accordion
-            id="about-skills"
-            className="w-full h-full flex justify-center items-center"
-            type="multiple"
-            value={skills}
-          >
-            <AccordionItem
-              className="border-none w-full skills-be mx-12"
-              value="Back-End Development"
-            >
-              <AccordionTrigger className="mono uppercase text-lg font-light text-gray-400 justify-center">
+      <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6 py-8">
+        <section id="skills" className="skills-content flex flex-col space-y-6">
+          <div className="flex flex-col space-y-4 bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
+            <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
+              Full Stack Development
+            </h3>
+            <span className="font-bold text-md text-gray-300">
+              I have experience in a wide range of technologies and am always
+              looking to learn new ones. I am known for my ability to quickly
+              learn new skills and apply them to projects.
+            </span>
+          </div>
+
+          <div className="flex w-full gap-6">
+            {/* Back-End Development Card */}
+            <div className="skills-be flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+              <h3 className="mono uppercase text-lg font-light text-gray-400 text-center hover:text-gray-200 transition-colors">
                 Back-End Development
-              </AccordionTrigger>
-              <AccordionContent className="text-minimal-light">
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Java</div> <div className="text-gray-500">•</div>
-                  <div>Python</div> <div className="text-gray-500">•</div>
-                  <div>C#</div>
+              </h3>
+              <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
+                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <FaJava className="text-2xl" />
+                    <span className="text-sm">Java</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiPython className="text-2xl" />
+                    <span className="text-sm">Python</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <TbBrandCSharp className="text-2xl" />
+                    <span className="text-sm">C#</span>
+                  </div>
                 </div>
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Spring Boot</div> <div className="text-gray-500">•</div>
-                  <div>Node.js</div>
+                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiSpring className="text-2xl" />
+                    <span className="text-sm whitespace-nowrap">
+                      Spring Boot
+                    </span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiNodedotjs className="text-2xl" />
+                    <span className="text-sm">Node.js</span>
+                  </div>
                 </div>
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>REST</div> <div className="text-gray-500">•</div>
-                  <div>GraphQL</div> <div className="text-gray-500">•</div>
-                  <div>gRPC</div>
+                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <TbApi className="text-2xl" />
+                    <span className="text-sm">REST</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <img
+                      src="/tech-icons/grpc.svg"
+                      alt="gRPC"
+                      className="w-6 h-6"
+                    />
+                    <span className="text-sm">gRPC</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiGraphql className="text-2xl" />
+                    <span className="text-sm">GraphQL</span>
+                  </div>
                 </div>
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>PostgreSQL</div>
+                <div className="flex w-full justify-center items-center space-x-4 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiPostgresql className="text-2xl" />
+                    <span className="text-sm">PostgreSQL</span>
+                  </div>
                 </div>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              className="border-none w-full skills-fe mx-12"
-              value="Front-End Development"
-            >
-              <AccordionTrigger className="mono uppercase text-lg font-light text-gray-400 justify-center">
+              </div>
+            </div>
+
+            {/* Front-End Development Card */}
+            <div className="skills-fe flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+              <h3 className="mono uppercase text-lg font-light text-gray-400 text-center hover:text-gray-200 transition-colors">
                 Front-End Development
-              </AccordionTrigger>
-              <AccordionContent className="text-minimal-light">
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>JavaScript</div>
-                  <div className="text-gray-500">•</div> <div>TypeScript</div>
-                  <div className="text-gray-500">•</div>
-                  <div>HTML/CSS</div>
+              </h3>
+              <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
+                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiJavascript className="text-2xl" />
+                    <span className="text-sm">JavaScript</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiTypescript className="text-2xl" />
+                    <span className="text-sm">TypeScript</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="flex gap-0.5">
+                      <SiHtml5 className="text-2xl" />
+                      <SiCss3 className="text-2xl" />
+                    </div>
+                    <span className="text-sm">HTML/CSS</span>
+                  </div>
                 </div>
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>React</div> <div className="text-gray-500">•</div>
-                  <div>Tailwind CSS</div>
-                  <div className="text-gray-500">•</div> <div>GSAP</div>
+                <div className="flex w-full justify-center items-center space-x-4 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiReact className="text-2xl" />
+                    <span className="text-sm">React</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiVuedotjs className="text-2xl" />
+                    <span className="text-sm">Vue.js</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiTailwindcss className="text-2xl" />
+                    <span className="text-sm whitespace-nowrap">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <img
+                      src="/tech-icons/gsap-white.svg"
+                      alt="GSAP"
+                      className="w-6 h-6"
+                    />
+                    <span className="text-sm">GSAP</span>
+                  </div>
                 </div>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              className="border-none w-full skills-ops mx-12"
-              value="Operations"
-            >
-              <AccordionTrigger className="mono uppercase text-lg font-light text-gray-400 justify-center">
+              </div>
+            </div>
+
+            {/* Operations Card */}
+            <div className="skills-ops flex-1 bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm flex flex-col">
+              <h3 className="mono uppercase text-lg font-light text-gray-400 text-center hover:text-gray-200 transition-colors">
                 Operations
-              </AccordionTrigger>
-              <AccordionContent className="text-minimal-light">
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Kubernetes</div> <div className="text-gray-500">•</div>
-                  <div>Docker</div>
-                  <div className="text-gray-500">•</div> <div>Git</div>
+              </h3>
+              <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
+                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiKubernetes className="text-2xl" />
+                    <span className="text-sm">Kubernetes</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiDocker className="text-2xl" />
+                    <span className="text-sm">Docker</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiGit className="text-2xl" />
+                    <span className="text-sm">Git</span>
+                  </div>
                 </div>
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>Redis</div> <div className="text-gray-500">•</div>
-                  <div>RabbitMQ</div>
+                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiRedis className="text-2xl" />
+                    <span className="text-sm">Redis</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiRabbitmq className="text-2xl" />
+                    <span className="text-sm">RabbitMQ</span>
+                  </div>
                 </div>
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>AWS</div> <div className="text-gray-500">•</div>
-                  <div>Azure</div>
+                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiAmazonwebservices className="text-2xl" />
+                    <span className="text-sm">AWS</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <FaMicrosoft className="text-2xl" />
+                    <span className="text-sm">Azure</span>
+                  </div>
                 </div>
-                <div className="flex justify-center space-x-2 border-b border-gray-400 py-2">
-                  <div>GitHub</div> <div className="text-gray-500">•</div>
-                  <div>Jira</div> <div className="text-gray-500">•</div>
-                  <div>Cursor</div>
+                <div className="flex w-full justify-center items-center space-x-4 py-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <SiGithub className="text-2xl" />
+                    <span className="text-sm">GitHub</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <SiJira className="text-2xl" />
+                    <span className="text-sm">Jira</span>
+                  </div>
+                  <div className="text-gray-500 self-center">•</div>
+                  <div className="flex flex-col items-center gap-1">
+                    <img
+                      src="/tech-icons/cursor.svg"
+                      alt="Cursor"
+                      className="w-6 h-6"
+                    />
+                    <span className="text-sm">Cursor</span>
+                  </div>
                 </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </div>
