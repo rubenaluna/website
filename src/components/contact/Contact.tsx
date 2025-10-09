@@ -23,7 +23,7 @@ export const Contact: FC = () => {
                   <h3 className="text-4xl font-normal text-white">
                     Let's Connect
                   </h3>
-                  <div className="w-16 h-1 bg-white mx-auto"></div>
+                  <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mx-auto"></div>
                   <p className="text-lg text-gray-300 max-w-xl mx-auto">
                     I'm always interested in new opportunities and exciting
                     projects. Let's discuss how we can work together.
@@ -32,7 +32,7 @@ export const Contact: FC = () => {
 
                 <a
                   href="mailto:rubenaluna@outlook.com"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-medium hover:bg-gray-200 transition-colors rounded-lg"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 rounded-lg shadow-lg shadow-emerald-900/50"
                 >
                   <Mail className="w-5 h-5" />
                   Send Email

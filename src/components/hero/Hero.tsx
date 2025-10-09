@@ -8,20 +8,23 @@ export const Hero: FC = () => {
       id="hero"
       className="hero w-screen h-[calc(100vh-48px)] flex flex-col items-center justify-center z-1"
     >
-      <div className="final text-sm font-normal uppercase text-gray-400 mono">
+      <div className="final text-sm font-normal uppercase bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mono">
         Software Engineer
       </div>
       <h1 className="name text-center text-6xl lg:text-8xl font-normal leading-none tracking-tight">
-        RUBEN
+        <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+          RUBEN
+        </span>
         <br />
         <span className="text-center text-gray-400 font-light">LUNA</span>
       </h1>
+      <div className="final w-32 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mt-6 rounded-full"></div>
       <div className="flex space-x-6 mt-8">
         <a
           href="https://github.com/rubenaluna"
           target="_blank"
           rel="noopener noreferrer"
-          className="final text-gray-400 hover:text-white transition-colors duration-300"
+          className="final text-gray-400 hover:text-emerald-300 transition-colors duration-300"
           aria-label="GitHub Profile"
         >
           <svg
@@ -37,7 +40,7 @@ export const Hero: FC = () => {
           href="https://linkedin.com/in/rubenaluna"
           target="_blank"
           rel="noopener noreferrer"
-          className="final text-gray-400 hover:text-white transition-colors duration-300"
+          className="final text-gray-400 hover:text-cyan-300 transition-colors duration-300"
           aria-label="LinkedIn Profile"
         >
           <svg

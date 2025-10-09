@@ -41,7 +41,7 @@ export const About: FC = () => {
                   My full-stack experience enables me to bring ideas to life
                   from back-end to front-end and concept to delivery.
                 </span>
-                <div className="w-1/2 h-1 bg-white mx-auto my-1"></div>
+                <div className="final w-1/2 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mt-6 rounded-full"></div>
               </div>
             </div>
 
@@ -79,8 +79,8 @@ export const About: FC = () => {
                   Interests
                 </h3>
                 <div className="grid grid-cols-2 grid-rows-2 gap-4">
-                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
-                    <Globe className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                  <div className="bg-white/5 rounded-xl p-6 border border-emerald-700/30 hover:border-emerald-600/50 hover:bg-gradient-to-br hover:from-emerald-900/10 hover:to-emerald-800/5 transition-all duration-300 flex items-center gap-4">
+                    <Globe className="w-8 h-8 text-emerald-300 flex-shrink-0" />
                     <div className="flex flex-col gap-1">
                       <h4 className="text-lg font-medium text-white">
                         Web Development
@@ -90,8 +90,8 @@ export const About: FC = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
-                    <Layout className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                  <div className="bg-white/5 rounded-xl p-6 border border-teal-700/30 hover:border-teal-600/50 hover:bg-gradient-to-br hover:from-teal-900/10 hover:to-teal-800/5 transition-all duration-300 flex items-center gap-4">
+                    <Layout className="w-8 h-8 text-teal-300 flex-shrink-0" />
                     <div className="flex flex-col gap-1">
                       <h4 className="text-lg font-medium text-white">
                         Front-End Development
@@ -101,8 +101,8 @@ export const About: FC = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
-                    <Server className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                  <div className="bg-white/5 rounded-xl p-6 border border-cyan-700/30 hover:border-cyan-600/50 hover:bg-gradient-to-br hover:from-cyan-900/10 hover:to-cyan-800/5 transition-all duration-300 flex items-center gap-4">
+                    <Server className="w-8 h-8 text-cyan-300 flex-shrink-0" />
                     <div className="flex flex-col gap-1">
                       <h4 className="text-lg font-medium text-white">
                         Back-End Development
@@ -112,8 +112,8 @@ export const About: FC = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center gap-4">
-                    <Brain className="w-8 h-8 text-gray-300 flex-shrink-0" />
+                  <div className="bg-white/5 rounded-xl p-6 border border-teal-700/30 hover:border-teal-600/50 hover:bg-gradient-to-br hover:from-teal-900/10 hover:to-teal-800/5 transition-all duration-300 flex items-center gap-4">
+                    <Brain className="w-8 h-8 text-teal-300 flex-shrink-0" />
                     <div className="flex flex-col gap-1">
                       <h4 className="text-lg font-medium text-white">
                         Artificial Intelligence

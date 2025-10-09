@@ -33,14 +33,14 @@ export const Experience: FC = () => {
         {/* Timeline Container - Horizontal */}
         <div className="flex-1 overflow-hidden px-8 py-12 relative">
           {/* Timeline Line - Horizontal - Full Width */}
-          <div className="absolute top-[80px] left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500/50 via-purple-500/50 to-blue-500/50"></div>
+          <div className="absolute top-[80px] left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-900/50 via-teal-800/50 to-cyan-900/50"></div>
 
           <div className="experience-timeline-container relative flex gap-32 min-w-max h-full items-start">
             {/* Internship Position */}
             <div className="experience-role-1 relative flex flex-col items-center gap-6 w-[600px]">
               {/* Timeline Dot */}
               <div className="relative flex-shrink-0 z-10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center border-4 border-gray-900">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-700 to-emerald-900 flex items-center justify-center border-4 border-gray-900">
                   <GraduationCap className="w-8 h-8 text-white" />
                 </div>
               </div>
@@ -80,10 +80,10 @@ export const Experience: FC = () => {
                       Technologies
                     </h5>
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-xs mono bg-gradient-to-r from-pink-500/20 to-red-600/20 text-pink-200 px-3 py-1 rounded-full border border-pink-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-emerald-700/20 to-emerald-900/20 text-emerald-200 px-3 py-1 rounded-full border border-emerald-700/30">
                         Unity
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-pink-500/20 to-red-600/20 text-pink-200 px-3 py-1 rounded-full border border-pink-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-emerald-700/20 to-emerald-900/20 text-emerald-200 px-3 py-1 rounded-full border border-emerald-700/30">
                         C#
                       </span>
                     </div>
@@ -96,7 +96,7 @@ export const Experience: FC = () => {
             <div className="experience-role-2 relative flex flex-col items-center gap-6 w-[600px]">
               {/* Timeline Dot */}
               <div className="relative flex-shrink-0 z-10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center border-4 border-gray-900">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-700 to-teal-900 flex items-center justify-center border-4 border-gray-900">
                   <Code className="w-8 h-8 text-white" />
                 </div>
               </div>
@@ -167,25 +167,25 @@ export const Experience: FC = () => {
                       Technologies
                     </h5>
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
                         Java
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
                         Spring Boot
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
                         TypeScript
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
                         React
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
                         Babylon.js
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
                         Python
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
                         GraphQL
                       </span>
                     </div>
@@ -198,7 +198,7 @@ export const Experience: FC = () => {
             <div className="experience-role-3 relative flex flex-col items-center gap-6 w-[600px]">
               {/* Timeline Dot */}
               <div className="relative flex-shrink-0 z-10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center border-4 border-gray-900">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-700 to-cyan-900 flex items-center justify-center border-4 border-gray-900">
                   <Users className="w-8 h-8 text-white" />
                 </div>
               </div>
@@ -266,10 +266,10 @@ export const Experience: FC = () => {
                       Technologies
                     </h5>
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-xs mono bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-200 px-3 py-1 rounded-full border border-blue-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-cyan-700/20 to-cyan-900/20 text-cyan-200 px-3 py-1 rounded-full border border-cyan-700/30">
                         TypeScript
                       </span>
-                      <span className="text-xs mono bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-200 px-3 py-1 rounded-full border border-blue-500/30">
+                      <span className="text-xs mono bg-gradient-to-r from-cyan-700/20 to-cyan-900/20 text-cyan-200 px-3 py-1 rounded-full border border-cyan-700/30">
                         React
                       </span>
                     </div>

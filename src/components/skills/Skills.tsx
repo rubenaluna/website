@@ -44,12 +44,15 @@ export const Skills = () => {
               looking to learn new ones. I am known for my ability to quickly
               learn new skills and apply them to projects.
             </span>
+            <div className="flex justify-center items-center">
+              <div className="final w-32 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mt-6 rounded-full"></div>
+            </div>
           </div>
 
           <div className="flex w-full gap-6">
             {/* Back-End Development Card */}
-            <div className="skills-be flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
-              <h3 className="mono uppercase text-lg font-light text-gray-400 text-center hover:text-gray-200 transition-colors">
+            <div className="skills-be flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-emerald-700/30 hover:border-emerald-600/50 backdrop-blur-sm transition-all duration-300">
+              <h3 className="mono uppercase text-lg font-light text-emerald-300 text-center hover:text-emerald-200 transition-colors">
                 Back-End Development
               </h3>
               <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
@@ -112,8 +115,8 @@ export const Skills = () => {
             </div>
 
             {/* Front-End Development Card */}
-            <div className="skills-fe flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
-              <h3 className="mono uppercase text-lg font-light text-gray-400 text-center hover:text-gray-200 transition-colors">
+            <div className="skills-fe flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-teal-700/30 hover:border-teal-600/50 backdrop-blur-sm transition-all duration-300">
+              <h3 className="mono uppercase text-lg font-light text-teal-300 text-center hover:text-teal-200 transition-colors">
                 Front-End Development
               </h3>
               <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
@@ -167,8 +170,8 @@ export const Skills = () => {
             </div>
 
             {/* Operations Card */}
-            <div className="skills-ops flex-1 bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm flex flex-col">
-              <h3 className="mono uppercase text-lg font-light text-gray-400 text-center hover:text-gray-200 transition-colors">
+            <div className="skills-ops flex-1 bg-white/5 rounded-2xl p-6 border border-cyan-700/30 hover:border-cyan-600/50 backdrop-blur-sm flex flex-col transition-all duration-300">
+              <h3 className="mono uppercase text-lg font-light text-cyan-300 text-center hover:text-cyan-200 transition-colors">
                 Operations
               </h3>
               <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
