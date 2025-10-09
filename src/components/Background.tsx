@@ -21,6 +21,9 @@ uniform float uNoise;
 uniform float uScan;
 uniform float uScanFreq;
 uniform float uWarp;
+uniform float uScrollOffset;
+uniform vec2 uMouse;
+uniform float uMouseIntensity;
 #define iTime uTime
 #define iResolution uResolution
 
@@ -61,8 +64,77 @@ vec4 cppn_fn(vec2 coordinate,float in0,float in1,float in2){
 void mainImage(out vec4 fragColor,in vec2 fragCoord){
     vec2 uv=fragCoord/uResolution.xy*2.-1.;
     uv.y*=-1.;
-    uv+=uWarp*vec2(sin(uv.y*6.283+uTime*0.5),cos(uv.x*6.283+uTime*0.5))*0.05;
-    fragColor=cppn_fn(uv,0.1*sin(0.3*uTime),0.1*sin(0.69*uTime),0.1*sin(0.44*uTime));
+    
+    // Store original UV for mouse distance calculation (before scroll transforms)
+    vec2 uvOriginal = uv;
+    
+    // Mouse position is already correctly normalized based on canvas dimensions
+    vec2 mousePos = uMouse;
+    
+    // Calculate distance from current pixel to mouse position
+    float distToMouse = length(uvOriginal - mousePos);
+    
+    // Create a localized warp effect around the mouse
+    // The effect falls off with distance using a smooth falloff function
+    float warpRadius = 2.0 * uMouseIntensity;
+    float warpFalloff = smoothstep(warpRadius, 0.0, distToMouse);
+    // Apply multiple layers of smoothing for an extremely gradual falloff
+    warpFalloff = warpFalloff * warpFalloff * (3.0 - 2.0 * warpFalloff);
+    warpFalloff = warpFalloff * warpFalloff; // Extra easing
+    
+    // Apply radial warp around mouse position
+    vec2 dirFromMouse = uvOriginal - mousePos;
+    float warpStrength = warpFalloff * 0.08 * uMouseIntensity;
+    
+    // Create swirling/twisting effect around cursor
+    float twist = warpFalloff * 0.5 * uMouseIntensity;
+    float ms = sin(twist);
+    float mc = cos(twist);
+    mat2 mouseRot = mat2(mc, -ms, ms, mc);
+    vec2 warpedDir = mouseRot * dirFromMouse;
+    
+    // Apply the localized warp to UV
+    vec2 mouseWarpOffset = (warpedDir - dirFromMouse) * warpStrength;
+    uv += mouseWarpOffset;
+    
+    // Add subtle pulsing warp effect at mouse position
+    float pulse = sin(uTime * 2.0) * 0.5 + 0.5;
+    vec2 pulseOffset = normalize(dirFromMouse) * warpFalloff * pulse * 0.02 * uMouseIntensity;
+    uv += pulseOffset;
+    
+    // Apply scroll-based parallax and rotation effect
+    float scrollEffect = uScrollOffset * 0.001;
+    uv.x += scrollEffect * 0.3;
+    uv.y += scrollEffect * 0.15;
+    
+    // Add scroll-based rotation
+    float angle = scrollEffect * 0.2;
+    float s = sin(angle);
+    float c = cos(angle);
+    mat2 rot = mat2(c, -s, s, c);
+    uv = rot * uv;
+    
+    // Enhanced warp with scroll influence
+    float scrollWarp = uWarp + abs(sin(scrollEffect * 0.5)) * 0.5;
+    uv+=scrollWarp*vec2(sin(uv.y*6.283+uTime*0.5+scrollEffect),cos(uv.x*6.283+uTime*0.5+scrollEffect))*0.05;
+    
+    // Add subtle extra localized distortion based on mouse proximity
+    uv += vec2(
+        sin(uv.y * 10.0 + uTime) * warpFalloff * 0.01 * uMouseIntensity,
+        cos(uv.x * 10.0 + uTime) * warpFalloff * 0.01 * uMouseIntensity
+    );
+    
+    // Scale the pattern to match the original appearance
+    // This compensates for the resolution fix while keeping mouse coordinates accurate
+    float patternScale = uResolution.x / (uResolution.x / (uResolution.y / uResolution.y * 2.0));
+    vec2 patternUV = uv * 2.0;
+    
+    // Animate CPPN inputs with scroll influence
+    float input0 = 0.1*sin(0.3*uTime + scrollEffect * 0.1);
+    float input1 = 0.1*sin(0.69*uTime + scrollEffect * 0.15);
+    float input2 = 0.1*sin(0.44*uTime + scrollEffect * 0.2);
+    
+    fragColor=cppn_fn(patternUV, input0, input1, input2);
 }
 
 void main(){
@@ -83,6 +155,10 @@ export interface Background extends React.HTMLAttributes<HTMLDivElement> {
   scanlineFrequency?: number;
   warpAmount?: number;
   resolutionScale?: number;
+  scrollEffect?: boolean;
+  scrollIntensity?: number;
+  mouseEffect?: boolean;
+  mouseIntensity?: number;
 }
 
 export const Background = forwardRef<HTMLDivElement, Background>(
@@ -96,6 +172,10 @@ export const Background = forwardRef<HTMLDivElement, Background>(
       scanlineFrequency = 0,
       warpAmount = 0,
       resolutionScale = 1,
+      scrollEffect = true,
+      scrollIntensity = 1,
+      mouseEffect = true,
+      mouseIntensity = 1,
       ...props
     },
     ref
@@ -103,6 +183,9 @@ export const Background = forwardRef<HTMLDivElement, Background>(
     const domProps = props;
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const scrollOffsetRef = useRef<number>(0);
+    const targetScrollOffsetRef = useRef<number>(0);
+    const mousePositionRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
     useEffect(() => {
       const canvas = canvasRef.current;
@@ -111,8 +194,9 @@ export const Background = forwardRef<HTMLDivElement, Background>(
 
       const parent = canvas.parentElement as HTMLElement;
 
+      const dpr = Math.min(window.devicePixelRatio, 2);
       const renderer = new Renderer({
-        dpr: Math.min(window.devicePixelRatio, 2),
+        dpr,
         canvas,
       });
 
@@ -130,6 +214,9 @@ export const Background = forwardRef<HTMLDivElement, Background>(
           uScan: { value: scanlineIntensity },
           uScanFreq: { value: scanlineFrequency },
           uWarp: { value: warpAmount },
+          uScrollOffset: { value: 0 },
+          uMouse: { value: new Vec2() },
+          uMouseIntensity: { value: mouseIntensity },
         },
       });
 
@@ -138,12 +225,58 @@ export const Background = forwardRef<HTMLDivElement, Background>(
       const resize = () => {
         const w = parent.clientWidth,
           h = parent.clientHeight;
-        renderer.setSize(w * resolutionScale, h * resolutionScale);
-        program.uniforms.uResolution.value.set(w, h);
+        const renderW = w * resolutionScale;
+        const renderH = h * resolutionScale;
+        renderer.setSize(renderW, renderH);
+        // Account for both resolutionScale AND DPR that renderer applies
+        const actualW = renderW * dpr;
+        const actualH = renderH * dpr;
+        program.uniforms.uResolution.value.set(actualW, actualH);
       };
 
       window.addEventListener("resize", resize);
       resize();
+
+      // Add scroll event listener
+      const handleScroll = () => {
+        if (scrollEffect) {
+          targetScrollOffsetRef.current = window.scrollY * scrollIntensity;
+        }
+      };
+
+      if (scrollEffect) {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll(); // Initialize scroll position
+        scrollOffsetRef.current = targetScrollOffsetRef.current; // Initialize current position
+      }
+
+      // Add mousemove event listener
+      const handleMouseMove = (e: MouseEvent) => {
+        if (mouseEffect && canvas) {
+          // Get canvas bounding rect for accurate positioning
+          const rect = canvas.getBoundingClientRect();
+
+          // Calculate mouse position relative to canvas
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          // Normalize to -1 to 1 range based on canvas dimensions
+          const normalizedX = (x / rect.width) * 2 - 1;
+          const normalizedY = (y / rect.height) * 2 - 1;
+
+          // Update mouse position directly
+          mousePositionRef.current = {
+            x: normalizedX,
+            y: normalizedY,
+          };
+        }
+      };
+
+      if (mouseEffect) {
+        window.addEventListener("mousemove", handleMouseMove, {
+          passive: true,
+        });
+      }
 
       const start = performance.now();
       let frame = 0;
@@ -156,6 +289,20 @@ export const Background = forwardRef<HTMLDivElement, Background>(
         program.uniforms.uScan.value = scanlineIntensity;
         program.uniforms.uScanFreq.value = scanlineFrequency;
         program.uniforms.uWarp.value = warpAmount;
+
+        // Apply smooth interpolation (lerp) to scroll offset for momentum/inertia effect
+        // Lower lerp factor = more momentum/lag
+        const scrollLerpFactor = 0.08;
+        scrollOffsetRef.current +=
+          (targetScrollOffsetRef.current - scrollOffsetRef.current) *
+          scrollLerpFactor;
+        program.uniforms.uScrollOffset.value = scrollOffsetRef.current;
+
+        program.uniforms.uMouse.value.set(
+          mousePositionRef.current.x,
+          mousePositionRef.current.y
+        );
+        program.uniforms.uMouseIntensity.value = mouseIntensity;
         renderer.render({ scene: mesh });
         frame = requestAnimationFrame(loop);
       };
@@ -165,6 +312,12 @@ export const Background = forwardRef<HTMLDivElement, Background>(
       return () => {
         cancelAnimationFrame(frame);
         window.removeEventListener("resize", resize);
+        if (scrollEffect) {
+          window.removeEventListener("scroll", handleScroll);
+        }
+        if (mouseEffect) {
+          window.removeEventListener("mousemove", handleMouseMove);
+        }
       };
     }, [
       hueShift,
@@ -174,6 +327,10 @@ export const Background = forwardRef<HTMLDivElement, Background>(
       scanlineFrequency,
       warpAmount,
       resolutionScale,
+      scrollEffect,
+      scrollIntensity,
+      mouseEffect,
+      mouseIntensity,
     ]);
 
     return (

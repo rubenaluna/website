@@ -265,3 +265,14 @@ a:focus-visible {
 .experience button {
   pointer-events: auto;
 }
+
+/* Background and parallax layering */
+.background {
+  z-index: -2;
+}
+
+/* Content should be above background and parallax */
+.w-full {
+  position: relative;
+  z-index: 1;
+}
