@@ -6,16 +6,13 @@ export const About: FC = () => {
   useAboutMeTimeline();
 
   return (
-    <div className="about w-screen h-screen">
+    <section id="about" className="about w-screen h-screen">
       <div className="about-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
         <div className="w-3 h-3 bg-white"></div>
         <h2 className="text-lg uppercase mono text-gray-400">ABOUT</h2>
       </div>
       <div className="about-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
-        <section
-          id="about"
-          className="about-content h-full flex flex-col justify-center"
-        >
+        <div className="about-content h-full flex flex-col justify-center">
           <div className="flex justify-center items-center gap-6">
             <div className="h-full flex flex-col space-y-4 flex-1 flex flex-col bg-white/5 rounded-2xl p-8 border border-white/10">
               <h3 className="text-start mono uppercase font-light text-gray-200 mb-6">
@@ -127,8 +124,8 @@ export const About: FC = () => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };

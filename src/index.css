@@ -28,6 +28,13 @@ body {
   color: #ffffff;
 }
 
+/* Hide default cursor on desktop, keep on mobile/touch devices */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

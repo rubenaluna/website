@@ -28,13 +28,13 @@ export const Skills = () => {
   useSkillsTimeline();
 
   return (
-    <div className="skills w-screen h-screen">
+    <section id="skills" className="skills w-screen h-screen">
       <div className="skills-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
         <div className="w-3 h-3 bg-white"></div>
         <h2 className="text-lg uppercase mono text-gray-400">SKILLS</h2>
       </div>
       <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6 py-8">
-        <section id="skills" className="skills-content flex flex-col space-y-6">
+        <div className="skills-content flex flex-col space-y-6">
           <div className="flex flex-col space-y-4 bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
             <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
               Full Stack Development
@@ -236,8 +236,8 @@ export const Skills = () => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };

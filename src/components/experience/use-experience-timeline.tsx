@@ -18,40 +18,23 @@ export const useExperienceTimeline = () => {
     ScrollTrigger.create({
       trigger: ".experience-header",
       start: "top top+=48px",
-      end: "top top+=48px",
-      onEnter: () => {
-        gsap.to(".experience-header", {
-          opacity: 1,
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-          duration: 0.3,
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(".experience-header", {
-          opacity: 0,
-          borderBottom: "1px solid rgba(255, 255, 255, 0)",
-          duration: 0.3,
-        });
-      },
+      end: "bottom top+=48px",
+      animation: gsap.to(".experience-header", {
+        opacity: 1,
+        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+      }),
+      toggleActions: "play none none reverse",
     });
 
-    // Experience body fade in
     ScrollTrigger.create({
-      trigger: ".experience",
-      start: "top top+=48px",
+      trigger: ".experience-body",
+      start: "top top+=96px",
       end: "top top",
-      onEnter: () => {
-        gsap.to(".experience-body", {
-          opacity: 1,
-          duration: 0.5,
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(".experience-body", {
-          opacity: 0,
-          duration: 0.3,
-        });
-      },
+      scrub: true,
+      toggleActions: "play none none reverse",
+      animation: gsap.to(".experience-body", {
+        opacity: 1,
+      }),
     });
 
     // Company header card animation - triggers after body is visible
@@ -140,17 +123,20 @@ export const useExperienceTimeline = () => {
       ScrollTrigger.create({
         trigger: ".experience",
         start: "top top+=48px",
-        end: "+=3000", // 3000px of scroll for 3 cards
+        end: "bottom top+=48px",
         pin: true,
-        pinSpacing: true,
+        scrub: true,
+        pinSpacing: false,
+        toggleActions: "play none none reverse",
         onUpdate: (self) => {
           const progress = self.progress;
           let targetCard = 0;
 
           // Determine which card should be centered based on scroll progress
-          if (progress < 0.33) {
+          // Quick snaps with thresholds at 25% and 60%
+          if (progress < 1 / 3) {
             targetCard = 0; // Internship
-          } else if (progress < 0.66) {
+          } else if (progress < 2 / 3) {
             targetCard = 1; // Software Engineer
           } else {
             targetCard = 2; // UI Team Lead
@@ -165,6 +151,20 @@ export const useExperienceTimeline = () => {
               ease: "power3.out",
             });
           }
+        },
+      });
+
+      const timeline = gsap.timeline({ paused: false });
+      timeline.to(".experience", {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".contact",
+          start: "top top+=48px",
+          end: "top top",
+          pin: ".experience",
+          scrub: true,
+          pinSpacing: false,
+          toggleActions: "play none none reverse",
         },
       });
     }

@@ -1,3 +1,4 @@
+import { FileText } from "lucide-react";
 import { type FC } from "react";
 import { useHeroTimeline } from "./use-hero-timeline";
 
@@ -53,6 +54,15 @@ export const Hero: FC = () => {
           </svg>
         </a>
       </div>
+      <a
+        href="/resume.pdf"
+        download="Ruben Luna - Software Engineer Resume.pdf"
+        className="final inline-flex items-center gap-2 mt-6 px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium hover:from-emerald-500 hover:to-teal-500 rounded-lg shadow-lg shadow-emerald-900/50"
+        aria-label="Resume"
+      >
+        <FileText className="w-5 h-5" />
+        <span>Resume</span>
+      </a>
     </section>
   );
 };

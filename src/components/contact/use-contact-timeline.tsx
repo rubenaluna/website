@@ -1,53 +1,43 @@
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const useContactTimeline = () => {
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".contact",
-          start: "top bottom",
-          end: "center center",
-          scrub: 1,
-        },
-      });
+  useGSAP(() => {
+    gsap.set(".contact-header", { opacity: 0 });
+    gsap.set(".contact-content", { opacity: 0 });
 
-      // Fade in header
-      timeline.fromTo(
-        ".contact-header",
-        {
-          opacity: 0,
-          y: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-        }
-      );
-
-      // Animate content
-      timeline.fromTo(
-        ".contact-content",
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-        },
-        "-=0.2"
-      );
+    ScrollTrigger.create({
+      trigger: ".contact-header",
+      start: "top top+=48px",
+      end: "bottom top+=48px",
+      scrub: true,
+      animation: gsap.to(".contact-header", {
+        opacity: 1,
+        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+      }),
+      toggleActions: "play none none reverse",
     });
 
-    return () => ctx.revert();
-  }, []);
+    ScrollTrigger.create({
+      trigger: ".contact",
+      start: "top top+=48px",
+      end: "bottom top+=48px",
+      scrub: true,
+      pin: ".contact-header",
+      pinSpacing: false,
+      toggleActions: "play none none reverse",
+    });
+
+    ScrollTrigger.create({
+      trigger: ".contact-content",
+      start: "top top+=96px",
+      end: "top top+=48px",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      animation: gsap.to(".contact-content", { opacity: 1 }),
+    });
+  });
 };
