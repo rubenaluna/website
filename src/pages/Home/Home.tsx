@@ -29,6 +29,7 @@ export const Home: FC = () => {
         <About />
         <Skills />
         <Experience />
+        {/* <Contact /> */}
 
         {/* 
         <section id="education" className="py-24 px-6 bg-gray-900/50">

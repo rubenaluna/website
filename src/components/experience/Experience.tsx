@@ -1,3 +1,4 @@
+import { Code, GraduationCap, Rocket, Users } from "lucide-react";
 import { type FC } from "react";
 import { useExperienceTimeline } from "./use-experience-timeline";
 
@@ -5,105 +6,280 @@ export const Experience: FC = () => {
   useExperienceTimeline();
 
   return (
-    <div id="experience" className="experience w-screen">
+    <section id="experience" className="experience w-screen h-screen">
       <div className="experience-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
         <div className="w-3 h-3 bg-white"></div>
         <h2 className="text-lg uppercase mono text-gray-400">EXPERIENCE</h2>
       </div>
 
-      <section className="experience-body max-w-6xl h-full mx-auto px-6 py-12">
-        <h3 className="experience-title mono text-4xl lg:text-5xl leading-tight uppercase py-6 font-light text-gray-200 mb-16">
-          WORK HISTORY
-        </h3>
+      <div className="experience-body flex flex-col h-full w-full">
+        {/* Company Header */}
+        <div className="experience-header-card bg-white/5 border-b border-white/10 backdrop-blur-sm px-8 py-6">
+          <div className="flex flex-row items-center justify-between w-full mx-auto">
+            <div className="flex items-center gap-4">
+              <img src="/worlds-logo.png" alt="Worlds" className="w-48" />
+              <div className="h-12 w-px bg-white/20"></div>
 
-        <div className="timeline-container relative">
-          <div className="relative flex items-start">
-            <div className="w-full">
-              <div className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div>
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                    <img src="/worlds-logo.png" alt="Worlds" className="w-64" />
-                    <span className="text-sm text-gray-400 mono bg-white/10 px-3 py-1 rounded-full">
-                      Feb. 2019 - Today
-                    </span>
+              <h3 className="text-xl font-medium text-white">
+                Worlds Enterprises Inc.
+              </h3>
+            </div>
+            <span className="text-sm text-gray-400 mono bg-white/10 px-4 py-2 rounded-full">
+              Feb. 2019 — Present
+            </span>
+          </div>
+        </div>
+
+        {/* Timeline Container - Horizontal */}
+        <div className="flex-1 overflow-hidden px-8 py-12 relative">
+          {/* Timeline Line - Horizontal - Full Width */}
+          <div className="absolute top-[80px] left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500/50 via-purple-500/50 to-blue-500/50"></div>
+
+          <div className="experience-timeline-container relative flex gap-32 min-w-max h-full items-start">
+            {/* Internship Position */}
+            <div className="experience-role-1 relative flex flex-col items-center gap-6 w-[600px]">
+              {/* Timeline Dot */}
+              <div className="relative flex-shrink-0 z-10">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center border-4 border-gray-900">
+                  <GraduationCap className="w-8 h-8 text-white" />
+                </div>
+              </div>
+
+              {/* Content Card */}
+              <div className="flex-1 w-full bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4">
+                  <h4 className="text-2xl font-semibold text-white">Intern</h4>
+                  <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full whitespace-nowrap">
+                    Feb. 2019 — May. 2019
+                  </span>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Key Responsibilites */}
+                  <div>
+                    <h5 className="text-sm uppercase tracking-wider text-gray-400 mono mb-3 flex items-center gap-2">
+                      <Rocket className="w-4 h-4" />
+                      Key Responsibilites
+                    </h5>
+                    <div className="space-y-3">
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          Digital Twin Visualization
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Created a prototype for digital twin visualization in
+                          Unity. Used for internal demos and presentations.
+                        </p>
+                      </div>
+                    </div>
                   </div>
 
-                  <div>
-                    <h4 className="text-xl mono uppercase font-light">
-                      UI Team Lead
-                    </h4>
+                  {/* Technologies */}
+                  <div className="pt-2">
+                    <h5 className="text-sm uppercase tracking-wider text-gray-400 mono mb-2">
+                      Technologies
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs mono bg-gradient-to-r from-pink-500/20 to-red-600/20 text-pink-200 px-3 py-1 rounded-full border border-pink-500/30">
+                        Unity
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-pink-500/20 to-red-600/20 text-pink-200 px-3 py-1 rounded-full border border-pink-500/30">
+                        C#
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                    <ul className="space-y-4 mb-6 list-disc list-inside">
-                      <li className="text-gray-300 leading-relaxed">
-                        Led the development of an AI chat interface written in
-                        TypeScript and React, which communicates with an LLM
-                        (Gemma) to find and describe objects that have been
-                        previously detected by Worlds' computer vision models.
-                      </li>
-                      <li className="text-gray-300 leading-relaxed">
-                        Led the development of AIMS, a monitoring interface for
-                        the US Air Force using React and TypeScript, ensuring
-                        real-time security compliance on military bases.
-                      </li>
-                      <li className="text-gray-300 leading-relaxed">
-                        Developed Worlds NQ using React and TypeScript, enabling
-                        data scientists to efficiently tag training data for
-                        object detection models. Decreased model deployment time
-                        by about 75%.
-                      </li>
-                      <li className="text-gray-300 leading-relaxed">
-                        Led a team of two engineers, translating product goals
-                        into requirements, features, and tasks. Prioritized and
-                        assigned work while mentoring team members and
-                        conducting code reviews to ensure delivery.
-                      </li>
-                    </ul>
+            {/* Software Engineer Position */}
+            <div className="experience-role-2 relative flex flex-col items-center gap-6 w-[600px]">
+              {/* Timeline Dot */}
+              <div className="relative flex-shrink-0 z-10">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center border-4 border-gray-900">
+                  <Code className="w-8 h-8 text-white" />
+                </div>
+              </div>
+
+              {/* Content Card */}
+              <div className="flex-1 w-full bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4">
+                  <h4 className="text-2xl font-semibold text-white">
+                    Software Engineer
+                  </h4>
+                  <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full whitespace-nowrap">
+                    May. 2019 — Apr. 2025
+                  </span>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Key Responsibilites */}
+                  <div>
+                    <h5 className="text-sm uppercase tracking-wider text-gray-400 mono mb-3 flex items-center gap-2">
+                      <Rocket className="w-4 h-4" />
+                      Key Responsibilites
+                    </h5>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          Worlds API
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Designed and developed a GraphQL API exposing platform
+                          data, enabling self-service integrations and reducing
+                          bespoke solutions by ~90%.
+                        </p>
+                      </div>
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          Worlds Navigator
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Real-time site activity simulator for digital twin
+                          visualization and event tracking.
+                        </p>
+                      </div>
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          Worlds Builder
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Full-stack digital twin creation and maintenance tool.
+                          Reduced onboarding time by 50%.
+                        </p>
+                      </div>
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          Worlds Calibration
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Microservice for real-time GPS data attachment to
+                          computer vision objects. Core to multiple awarded
+                          patents.
+                        </p>
+                      </div>
+                    </div>
                   </div>
 
-                  <div>
-                    <h4 className="text-xl font-light mono uppercase">
-                      Software Engineer
-                    </h4>
+                  {/* Technologies */}
+                  <div className="pt-2">
+                    <h5 className="text-sm uppercase tracking-wider text-gray-400 mono mb-2">
+                      Technologies
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                        Java
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                        Spring Boot
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                        TypeScript
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                        React
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                        Babylon.js
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                        Python
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-200 px-3 py-1 rounded-full border border-purple-500/30">
+                        GraphQL
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                    <ul className="space-y-4 mb-6 list-disc list-inside">
-                      <li className="text-gray-300 leading-relaxed">
-                        Led the design and development of the Worlds API and its
-                        documentation: A GraphQL API written in Java Spring Boot
-                        that exposes data generated by the Worlds platform to
-                        the public. Enables forward-deployed and client
-                        engineering teams to self-serve integrations, reducing
-                        the internal engineering team's bespoke solution
-                        workload by about 90%.
-                      </li>
-                      <li className="text-gray-300 leading-relaxed">
-                        Designed and developed Worlds Navigator in TypeScript,
-                        React, and Babylon.js, which simulates clients' site
-                        activity and events in real-time within their digital
-                        twins.
-                      </li>
-                      <li className="text-gray-300 leading-relaxed">
-                        Proposed, designed, and developed Worlds Builder using
-                        TypeScript, React and Babylon.js on the front-end and
-                        Java and Spring Boot on the back-end. Allows internal
-                        support teams and clients to create and maintain digital
-                        twins. Resulted in a 50% decrease in client onboarding
-                        time.
-                      </li>
-                      <li className="text-gray-300 leading-relaxed">
-                        Developed Worlds Calibration, a Python microservice that
-                        enables the real-time simulation of clients' digital
-                        twins by attaching global positioning data to objects
-                        detected by computer vision models. The underlying logic
-                        has been incorporated into multiple awarded patents.
-                      </li>
-                    </ul>
+            {/* UI Team Lead Position */}
+            <div className="experience-role-3 relative flex flex-col items-center gap-6 w-[600px]">
+              {/* Timeline Dot */}
+              <div className="relative flex-shrink-0 z-10">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center border-4 border-gray-900">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+              </div>
+
+              {/* Content Card */}
+              <div className="flex-1 w-full bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4">
+                  <h4 className="text-2xl font-semibold text-white">
+                    UI Team Lead
+                  </h4>
+                  <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full whitespace-nowrap">
+                    Apr. 2025 — Present
+                  </span>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Key Responsibilites */}
+                  <div>
+                    <h5 className="text-sm uppercase tracking-wider text-gray-400 mono mb-3 flex items-center gap-2">
+                      <Rocket className="w-4 h-4" />
+                      Key Responsibilites
+                    </h5>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          AI Chat Interface
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Integrated LLM capabilities for object detection and
+                          description from computer vision models.
+                        </p>
+                      </div>
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          AIMS Monitoring Interface
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Real-time security compliance monitoring system.
+                        </p>
+                      </div>
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          Worlds NQ
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Data tagging interface that decreased model deployment
+                          time by ~75% for data scientists.
+                        </p>
+                      </div>
+                      <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                        <h6 className="font-medium text-white mb-1">
+                          Team Leadership
+                        </h6>
+                        <p className="text-sm text-gray-400">
+                          Led 2 engineers, translating goals into features,
+                          mentoring team members, and conducting code reviews.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Technologies */}
+                  <div className="pt-2">
+                    <h5 className="text-sm uppercase tracking-wider text-gray-400 mono mb-2">
+                      Technologies
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs mono bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-200 px-3 py-1 rounded-full border border-blue-500/30">
+                        TypeScript
+                      </span>
+                      <span className="text-xs mono bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-200 px-3 py-1 rounded-full border border-blue-500/30">
+                        React
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };

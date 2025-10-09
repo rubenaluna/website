@@ -50,7 +50,7 @@ export const useHeroTimeline = () => {
       .to(
         ".background",
         {
-          opacity: 0.5,
+          opacity: 1,
           duration: 2,
           ease: Power1.easeInOut,
         },

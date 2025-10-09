@@ -339,7 +339,7 @@ export const Background = forwardRef<HTMLDivElement, Background>(
         className={cn("w-screen h-screen relative", className)}
         {...domProps}
       >
-        <canvas ref={canvasRef} className="w-screen h-screen" />
+        <canvas ref={canvasRef} className="w-full h-full" />
       </div>
     );
   }
