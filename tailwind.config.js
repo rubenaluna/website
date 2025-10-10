@@ -3,13 +3,27 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Space Grotesk"', "sans-serif"],
-        body: ['"Manrope"', "sans-serif"],
-        mono: ['"JetBrains Mono"', "monospace"],
+        sans: [
+          '"Inter"',
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          "sans-serif",
+        ],
+        mono: [
+          '"JetBrains Mono"',
+          '"SF Mono"',
+          "Monaco",
+          "Consolas",
+          '"Courier New"',
+          "monospace",
+        ],
       },
       letterSpacing: {
-        tighter: "-0.04em",
-        tight: "-0.02em",
+        tightest: "-0.045em",
+        tighter: "-0.035em",
+        tight: "-0.025em",
       },
     },
   },
