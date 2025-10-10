@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/Button";
+import { GradientDivider } from "@/components/ui/GradientDivider";
 import { FileText } from "lucide-react";
 import { type FC } from "react";
 import { useHeroTimeline } from "./use-hero-timeline";
@@ -8,6 +10,7 @@ export const Hero: FC = () => {
     <section
       id="hero"
       className="hero w-screen h-[calc(100vh-48px)] flex flex-col items-center justify-center z-1"
+      aria-label="Hero section - Introduction"
     >
       <div className="final text-sm font-normal uppercase bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mono">
         Software Engineer
@@ -19,7 +22,7 @@ export const Hero: FC = () => {
         <br />
         <span className="text-center text-gray-400 font-light">LUNA</span>
       </h1>
-      <div className="final w-32 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mt-6 rounded-full"></div>
+      <GradientDivider width="md" className="final mt-6" />
       <div className="flex space-x-6 mt-8">
         <a
           href="https://github.com/rubenaluna"
@@ -54,15 +57,16 @@ export const Hero: FC = () => {
           </svg>
         </a>
       </div>
-      <a
+      <Button
         href="/resume.pdf"
         download="Ruben Luna - Software Engineer Resume.pdf"
-        className="final inline-flex items-center gap-2 mt-6 px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium hover:from-emerald-500 hover:to-teal-500 rounded-lg shadow-lg shadow-emerald-900/50"
-        aria-label="Resume"
+        variant="primary"
+        icon={<FileText className="w-5 h-5" />}
+        ariaLabel="Resume"
+        className="final mt-6"
       >
-        <FileText className="w-5 h-5" />
-        <span>Resume</span>
-      </a>
+        Resume
+      </Button>
     </section>
   );
 };

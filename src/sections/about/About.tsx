@@ -1,3 +1,7 @@
+import { DatePill } from "@/components/ui/DatePill";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { GradientDivider } from "@/components/ui/GradientDivider";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Brain, Globe, Layout, Server } from "lucide-react";
 import { type FC } from "react";
 import { useAboutMeTimeline } from "./use-about-me-timeline";
@@ -6,15 +10,19 @@ export const About: FC = () => {
   useAboutMeTimeline();
 
   return (
-    <section id="about" className="about w-screen h-screen">
-      <div className="about-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
-        <div className="w-3 h-3 bg-white"></div>
-        <h2 className="text-lg uppercase mono text-gray-400">ABOUT</h2>
-      </div>
+    <section
+      id="about"
+      className="about w-screen h-screen"
+      aria-label="About me section"
+    >
+      <SectionHeader className="about-header">ABOUT</SectionHeader>
       <div className="about-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
         <div className="about-content h-full flex flex-col justify-center">
           <div className="flex justify-center items-center gap-6">
-            <div className="h-full flex flex-col space-y-4 flex-1 flex flex-col bg-white/5 rounded-2xl p-8 border border-white/10">
+            <GlassCard
+              padding="lg"
+              className="h-full flex-1 flex flex-col space-y-4"
+            >
               <h3 className="text-start mono uppercase font-light text-gray-200 mb-6">
                 This is me.
               </h3>
@@ -38,12 +46,12 @@ export const About: FC = () => {
                   My full-stack experience enables me to bring ideas to life
                   from back-end to front-end and concept to delivery.
                 </span>
-                <div className="final w-1/2 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mt-6 rounded-full"></div>
+                <GradientDivider width="lg" className="final mt-6" />
               </div>
-            </div>
+            </GlassCard>
 
             <div className="flex-1">
-              <div className="flex-1 bg-white/5 rounded-2xl p-8 border border-white/10">
+              <GlassCard padding="lg" className="flex-1">
                 <h3 className="mono text-2xl uppercase font-light text-gray-200 mb-6">
                   Education
                 </h3>
@@ -64,14 +72,12 @@ export const About: FC = () => {
                         The University of Texas at Dallas
                       </p>
 
-                      <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full">
-                        Aug. 2015 - May. 2019
-                      </span>
+                      <DatePill>Aug. 2015 - May. 2019</DatePill>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="mt-8 bg-white/5 rounded-2xl p-8 border border-white/10">
+              </GlassCard>
+              <GlassCard padding="lg" className="mt-8">
                 <h3 className="mono text-2xl uppercase font-light text-gray-200 mb-6">
                   Interests
                 </h3>
@@ -121,7 +127,7 @@ export const About: FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </GlassCard>
             </div>
           </div>
         </div>

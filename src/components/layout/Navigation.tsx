@@ -1,5 +1,5 @@
-import { Clock } from "@/components/Clock";
 import { type FC } from "react";
+import { Clock } from "./Clock";
 
 export const Navigation: FC = () => {
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -27,7 +27,10 @@ export const Navigation: FC = () => {
   };
 
   return (
-    <nav className="navbar fixed top-0 left-0 right-0 bg-black/40 backdrop-blur-sm border-b border-white/10 z-98">
+    <nav
+      className="navbar fixed top-0 left-0 right-0 bg-black/40 backdrop-blur-sm border-b border-white/10 z-98"
+      aria-label="Main navigation"
+    >
       <div className="w-full h-12 px-6 flex items-center justify-between relative">
         {/* Left - Clock */}
         <div className="flex items-center final">

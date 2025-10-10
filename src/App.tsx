@@ -1,7 +1,6 @@
+import { Layout } from "@/components/layout";
+import { Home } from "@/pages/Home/Home";
 import gsap from "gsap";
-import { Layout } from "./components/Layout";
-import { Home } from "./pages/Home/Home";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function App() {

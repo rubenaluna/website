@@ -1,3 +1,7 @@
+import { DatePill } from "@/components/ui/DatePill";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { TechTag } from "@/components/ui/TechTag";
 import { Code, GraduationCap, Rocket, Users } from "lucide-react";
 import { type FC } from "react";
 import { useExperienceTimeline } from "./use-experience-timeline";
@@ -6,11 +10,12 @@ export const Experience: FC = () => {
   useExperienceTimeline();
 
   return (
-    <section id="experience" className="experience w-screen h-screen">
-      <div className="experience-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
-        <div className="w-3 h-3 bg-white"></div>
-        <h2 className="text-lg uppercase mono text-gray-400">EXPERIENCE</h2>
-      </div>
+    <section
+      id="experience"
+      className="experience w-screen h-screen"
+      aria-label="Work experience section"
+    >
+      <SectionHeader className="experience-header">EXPERIENCE</SectionHeader>
 
       <div className="experience-body flex flex-col h-full w-full">
         {/* Company Header */}
@@ -24,9 +29,7 @@ export const Experience: FC = () => {
                 Worlds Enterprises Inc.
               </h3>
             </div>
-            <span className="text-sm text-gray-400 mono bg-white/10 px-4 py-2 rounded-full">
-              Feb. 2019 — Present
-            </span>
+            <DatePill size="md">Feb. 2019 — Present</DatePill>
           </div>
         </div>
 
@@ -46,12 +49,15 @@ export const Experience: FC = () => {
               </div>
 
               {/* Content Card */}
-              <div className="flex-1 w-full bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+              <GlassCard
+                padding="md"
+                hover={true}
+                backdropBlur={true}
+                className="flex-1 w-full"
+              >
                 <div className="flex justify-between items-center mb-4">
                   <h4 className="text-2xl font-semibold text-white">Intern</h4>
-                  <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full whitespace-nowrap">
-                    Feb. 2019 — May. 2019
-                  </span>
+                  <DatePill>Feb. 2019 — May. 2019</DatePill>
                 </div>
 
                 <div className="space-y-4">
@@ -80,16 +86,12 @@ export const Experience: FC = () => {
                       Technologies
                     </h5>
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-xs mono bg-gradient-to-r from-emerald-700/20 to-emerald-900/20 text-emerald-200 px-3 py-1 rounded-full border border-emerald-700/30">
-                        Unity
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-emerald-700/20 to-emerald-900/20 text-emerald-200 px-3 py-1 rounded-full border border-emerald-700/30">
-                        C#
-                      </span>
+                      <TechTag color="emerald">Unity</TechTag>
+                      <TechTag color="emerald">C#</TechTag>
                     </div>
                   </div>
                 </div>
-              </div>
+              </GlassCard>
             </div>
 
             {/* Software Engineer Position */}
@@ -102,14 +104,17 @@ export const Experience: FC = () => {
               </div>
 
               {/* Content Card */}
-              <div className="flex-1 w-full bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+              <GlassCard
+                padding="md"
+                hover={true}
+                backdropBlur={true}
+                className="flex-1 w-full"
+              >
                 <div className="flex justify-between items-center mb-4">
                   <h4 className="text-2xl font-semibold text-white">
                     Software Engineer
                   </h4>
-                  <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full whitespace-nowrap">
-                    May. 2019 — Apr. 2025
-                  </span>
+                  <DatePill>May. 2019 — Apr. 2025</DatePill>
                 </div>
 
                 <div className="space-y-4">
@@ -167,31 +172,17 @@ export const Experience: FC = () => {
                       Technologies
                     </h5>
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
-                        Java
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
-                        Spring Boot
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
-                        TypeScript
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
-                        React
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
-                        Babylon.js
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
-                        Python
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-teal-700/20 to-teal-900/20 text-teal-200 px-3 py-1 rounded-full border border-teal-700/30">
-                        GraphQL
-                      </span>
+                      <TechTag color="teal">Java</TechTag>
+                      <TechTag color="teal">Spring Boot</TechTag>
+                      <TechTag color="teal">TypeScript</TechTag>
+                      <TechTag color="teal">React</TechTag>
+                      <TechTag color="teal">Babylon.js</TechTag>
+                      <TechTag color="teal">Python</TechTag>
+                      <TechTag color="teal">GraphQL</TechTag>
                     </div>
                   </div>
                 </div>
-              </div>
+              </GlassCard>
             </div>
 
             {/* UI Team Lead Position */}
@@ -204,14 +195,17 @@ export const Experience: FC = () => {
               </div>
 
               {/* Content Card */}
-              <div className="flex-1 w-full bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+              <GlassCard
+                padding="md"
+                hover={true}
+                backdropBlur={true}
+                className="flex-1 w-full"
+              >
                 <div className="flex justify-between items-center mb-4">
                   <h4 className="text-2xl font-semibold text-white">
                     UI Team Lead
                   </h4>
-                  <span className="text-xs text-gray-400 mono bg-white/10 px-3 py-1 rounded-full whitespace-nowrap">
-                    Apr. 2025 — Present
-                  </span>
+                  <DatePill>Apr. 2025 — Present</DatePill>
                 </div>
 
                 <div className="space-y-4">
@@ -266,16 +260,12 @@ export const Experience: FC = () => {
                       Technologies
                     </h5>
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-xs mono bg-gradient-to-r from-cyan-700/20 to-cyan-900/20 text-cyan-200 px-3 py-1 rounded-full border border-cyan-700/30">
-                        TypeScript
-                      </span>
-                      <span className="text-xs mono bg-gradient-to-r from-cyan-700/20 to-cyan-900/20 text-cyan-200 px-3 py-1 rounded-full border border-cyan-700/30">
-                        React
-                      </span>
+                      <TechTag color="cyan">TypeScript</TechTag>
+                      <TechTag color="cyan">React</TechTag>
                     </div>
                   </div>
                 </div>
-              </div>
+              </GlassCard>
             </div>
           </div>
         </div>

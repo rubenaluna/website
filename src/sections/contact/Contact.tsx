@@ -1,3 +1,7 @@
+import { Button } from "@/components/ui/Button";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { GradientDivider } from "@/components/ui/GradientDivider";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Mail } from "lucide-react";
 import { type FC } from "react";
 import { useContactTimeline } from "./use-contact-timeline";
@@ -6,35 +10,37 @@ export const Contact: FC = () => {
   useContactTimeline();
 
   return (
-    <section id="contact" className="contact w-screen h-screen">
-      <div className="contact-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
-        <div className="w-3 h-3 bg-white"></div>
-        <h2 className="text-lg uppercase mono text-gray-400">CONTACT</h2>
-      </div>
+    <section
+      id="contact"
+      className="contact w-screen h-screen"
+      aria-label="Contact information section"
+    >
+      <SectionHeader className="contact-header">CONTACT</SectionHeader>
       <div className="contact-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
         <div className="contact-content h-full flex flex-col justify-center">
           <div className="max-w-3xl mx-auto w-full space-y-8">
-            <div className="bg-white/5 rounded-2xl p-12 border border-white/10">
+            <GlassCard padding="lg" className="p-12">
               <div className="text-center space-y-8">
                 <div className="space-y-4">
                   <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
                     Let's Connect
                   </h3>
-                  <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mx-auto"></div>
+                  <GradientDivider width="sm" className="mx-auto" />
                   <p className="text-lg text-gray-300 max-w-xl mx-auto">
                     I'm always interested in new opportunities and exciting
                     projects. Let's discuss how we can work together.
                   </p>
                 </div>
 
-                <a
+                <Button
                   href="mailto:rubenaluna@outlook.com"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 rounded-lg shadow-lg shadow-emerald-900/50"
-                >
-                  <Mail className="w-5 h-5" />
-                </a>
+                  variant="secondary"
+                  icon={<Mail className="w-5 h-5" />}
+                  ariaLabel="Send email to Ruben Luna"
+                  className="gap-3"
+                />
               </div>
-            </div>
+            </GlassCard>
 
             <div className="text-center py-8">
               <p className="text-sm text-gray-500 mono">© 2026 Ruben Luna</p>

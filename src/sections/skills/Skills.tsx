@@ -1,3 +1,6 @@
+import { GlassCard } from "@/components/ui/GlassCard";
+import { GradientDivider } from "@/components/ui/GradientDivider";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FaJava, FaMicrosoft } from "react-icons/fa";
 import {
   SiAmazonwebservices,
@@ -28,14 +31,19 @@ export const Skills = () => {
   useSkillsTimeline();
 
   return (
-    <section id="skills" className="skills w-screen h-screen">
-      <div className="skills-header top-0 left-0 w-full h-12 flex items-center px-6 py-4 space-x-2">
-        <div className="w-3 h-3 bg-white"></div>
-        <h2 className="text-lg uppercase mono text-gray-400">SKILLS</h2>
-      </div>
+    <section
+      id="skills"
+      className="skills w-screen h-screen"
+      aria-label="Technical skills section"
+    >
+      <SectionHeader className="skills-header">SKILLS</SectionHeader>
       <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6 py-8">
         <div className="skills-content flex flex-col space-y-6">
-          <div className="flex flex-col space-y-4 bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
+          <GlassCard
+            padding="lg"
+            backdropBlur={true}
+            className="flex flex-col space-y-4"
+          >
             <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
               Full Stack Development
             </h3>
@@ -45,13 +53,17 @@ export const Skills = () => {
               learn new skills and apply them to projects.
             </span>
             <div className="flex justify-center items-center">
-              <div className="final w-32 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mt-6 rounded-full"></div>
+              <GradientDivider width="md" className="final mt-6" />
             </div>
-          </div>
+          </GlassCard>
 
           <div className="flex w-full gap-6">
             {/* Back-End Development Card */}
-            <div className="skills-be flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-emerald-700/30 hover:border-emerald-600/50 backdrop-blur-sm transition-all duration-300">
+            <GlassCard
+              padding="md"
+              backdropBlur={true}
+              className="skills-be flex-1 flex flex-col border-emerald-700/30 hover:border-emerald-600/50 transition-all duration-300"
+            >
               <h3 className="mono uppercase text-lg font-light text-emerald-300 text-center hover:text-emerald-200 transition-colors">
                 Back-End Development
               </h3>
@@ -112,10 +124,14 @@ export const Skills = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </GlassCard>
 
             {/* Front-End Development Card */}
-            <div className="skills-fe flex-1 flex flex-col bg-white/5 rounded-2xl p-6 border border-teal-700/30 hover:border-teal-600/50 backdrop-blur-sm transition-all duration-300">
+            <GlassCard
+              padding="md"
+              backdropBlur={true}
+              className="skills-fe flex-1 flex flex-col border-teal-700/30 hover:border-teal-600/50 transition-all duration-300"
+            >
               <h3 className="mono uppercase text-lg font-light text-teal-300 text-center hover:text-teal-200 transition-colors">
                 Front-End Development
               </h3>
@@ -167,10 +183,14 @@ export const Skills = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </GlassCard>
 
             {/* Operations Card */}
-            <div className="skills-ops flex-1 bg-white/5 rounded-2xl p-6 border border-cyan-700/30 hover:border-cyan-600/50 backdrop-blur-sm flex flex-col transition-all duration-300">
+            <GlassCard
+              padding="md"
+              backdropBlur={true}
+              className="skills-ops flex-1 flex flex-col border-cyan-700/30 hover:border-cyan-600/50 transition-all duration-300"
+            >
               <h3 className="mono uppercase text-lg font-light text-cyan-300 text-center hover:text-cyan-200 transition-colors">
                 Operations
               </h3>
@@ -234,7 +254,7 @@ export const Skills = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </GlassCard>
           </div>
         </div>
       </div>

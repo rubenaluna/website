@@ -1,8 +1,28 @@
 {
-  "name": "website",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ruben-luna-portfolio",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "description": "Personal portfolio website for Ruben Luna - Full-Stack Software Engineer",
+  "author": {
+    "name": "Ruben Luna",
+    "email": "rubenaluna@outlook.com",
+    "url": "https://github.com/rubenaluna"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rubenaluna/website.git"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "vite",
+    "gsap",
+    "personal-website"
+  ],
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
