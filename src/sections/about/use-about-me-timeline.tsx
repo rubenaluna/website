@@ -13,32 +13,26 @@ export const useAboutMeTimeline = () => {
     gsap.set(".about-body", { opacity: 0 });
 
     // Set initial state for about cards
-    gsap.set(".about-body > section > div > div:nth-child(1)", {
+    gsap.set(".about-body > div > div > div:nth-child(1)", {
       opacity: 0,
       x: -100,
       scale: 0.95,
     });
 
-    gsap.set(
-      ".about-body > section > div > div:nth-child(2) > div:nth-child(1)",
-      {
-        opacity: 0,
-        y: -50,
-        scale: 0.95,
-      }
-    );
+    gsap.set(".about-body > div > div > div:nth-child(2) > div:nth-child(1)", {
+      opacity: 0,
+      y: -50,
+      scale: 0.95,
+    });
+
+    gsap.set(".about-body > div > div > div:nth-child(2) > div:nth-child(2)", {
+      opacity: 0,
+      y: 50,
+      scale: 0.95,
+    });
 
     gsap.set(
-      ".about-body > section > div > div:nth-child(2) > div:nth-child(2)",
-      {
-        opacity: 0,
-        y: 50,
-        scale: 0.95,
-      }
-    );
-
-    gsap.set(
-      ".about-body > section > div > div:nth-child(2) > div:nth-child(2) .grid > div",
+      ".about-body > div > div > div:nth-child(2) > div:nth-child(2) .grid > div",
       {
         opacity: 0,
         scale: 0.8,
@@ -77,83 +71,95 @@ export const useAboutMeTimeline = () => {
       animation: gsap.to(".about-body", {
         opacity: 1,
       }),
-    });
+      onEnter: () => {
+        // Create a timeline for card animations that plays once
+        const cardsTimeline = gsap.timeline();
 
-    // Animate the main "This is me" card
-    ScrollTrigger.create({
-      trigger: ".about-body",
-      start: "top top+=96px",
-      end: "top top+=48px",
-      scrub: 1,
-      toggleActions: "play none none reverse",
-      animation: gsap.to(".about-body > section > div > div:nth-child(1)", {
-        opacity: 1,
-        x: 0,
-        scale: 1,
-        duration: 1,
-        ease: "power2.out",
-      }),
-    });
+        // Animate the main "This is me" card
+        cardsTimeline.to(
+          ".about-body > div > div > div:nth-child(1)",
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          0
+        );
 
-    // Animate the Education card
-    ScrollTrigger.create({
-      trigger: ".about-body",
-      start: "top top+=96px",
-      end: "top top+=48px",
-      scrub: 1,
-      toggleActions: "play none none reverse",
-      animation: gsap.to(
-        ".about-body > section > div > div:nth-child(2) > div:nth-child(1)",
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          delay: 0.2,
-          ease: "power2.out",
-        }
-      ),
-    });
+        // Animate the Education card
+        cardsTimeline.to(
+          ".about-body > div > div > div:nth-child(2) > div:nth-child(1)",
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          0.2
+        );
 
-    // Animate the Interests card container
-    ScrollTrigger.create({
-      trigger: ".about-body",
-      start: "top top+=96px",
-      end: "top top+=48px",
-      scrub: 1,
-      toggleActions: "play none none reverse",
-      animation: gsap.to(
-        ".about-body > section > div > div:nth-child(2) > div:nth-child(2)",
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          delay: 0.4,
-          ease: "power2.out",
-        }
-      ),
-    });
+        // Animate the Interests card container
+        cardsTimeline.to(
+          ".about-body > div > div > div:nth-child(2) > div:nth-child(2)",
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          0.4
+        );
 
-    // Stagger animate the individual interest cards
-    ScrollTrigger.create({
-      trigger: ".about-body",
-      start: "top top+=96px",
-      end: "top top+=48px",
-      scrub: 1,
-      toggleActions: "play none none reverse",
-      animation: gsap.to(
-        ".about-body > section > div > div:nth-child(2) > div:nth-child(2) .grid > div",
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          delay: 0.6,
-          ease: "back.out(1.2)",
-        }
-      ),
+        // Stagger animate the individual interest cards
+        cardsTimeline.to(
+          ".about-body > div > div > div:nth-child(2) > div:nth-child(2) .grid > div",
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "back.out(1.2)",
+          },
+          0.6
+        );
+      },
+      onLeaveBack: () => {
+        // Reset animations when scrolling back up
+        gsap.set(".about-body > div > div > div:nth-child(1)", {
+          opacity: 0,
+          x: -100,
+          scale: 0.95,
+        });
+        gsap.set(
+          ".about-body > div > div > div:nth-child(2) > div:nth-child(1)",
+          {
+            opacity: 0,
+            y: -50,
+            scale: 0.95,
+          }
+        );
+        gsap.set(
+          ".about-body > div > div > div:nth-child(2) > div:nth-child(2)",
+          {
+            opacity: 0,
+            y: 50,
+            scale: 0.95,
+          }
+        );
+        gsap.set(
+          ".about-body > div > div > div:nth-child(2) > div:nth-child(2) .grid > div",
+          {
+            opacity: 0,
+            scale: 0.8,
+            y: 30,
+          }
+        );
+      },
     });
 
     timeline.to(".about", {
