@@ -1,6 +1,5 @@
 import { DatePill } from "@/components/ui/DatePill";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { TechTag } from "@/components/ui/TechTag";
 import { Code, GraduationCap, Rocket, Users } from "lucide-react";
 import { type FC } from "react";
@@ -12,11 +11,9 @@ export const Experience: FC = () => {
   return (
     <section
       id="experience"
-      className="experience w-screen h-screen"
+      className="experience w-screen h-screen pt-24"
       aria-label="Work experience section"
     >
-      <SectionHeader className="experience-header">EXPERIENCE</SectionHeader>
-
       <div className="experience-body flex flex-col h-full w-full">
         {/* Company Header */}
         <div className="experience-header-card bg-white/5 border-b border-white/10 backdrop-blur-sm px-8 py-6">

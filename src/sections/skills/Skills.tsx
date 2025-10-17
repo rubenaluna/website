@@ -1,6 +1,5 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { GradientDivider } from "@/components/ui/GradientDivider";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FaJava, FaMicrosoft } from "react-icons/fa";
 import {
   SiAmazonwebservices,
@@ -33,10 +32,9 @@ export const Skills = () => {
   return (
     <section
       id="skills"
-      className="skills w-screen h-screen"
+      className="skills w-screen h-screen pt-24"
       aria-label="Technical skills section"
     >
-      <SectionHeader className="skills-header">SKILLS</SectionHeader>
       <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6 py-8">
         <div className="skills-content flex flex-col space-y-6">
           <GlassCard

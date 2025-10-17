@@ -1,7 +1,6 @@
 import { DatePill } from "@/components/ui/DatePill";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { GradientDivider } from "@/components/ui/GradientDivider";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Brain, Globe, Layout, Server } from "lucide-react";
 import { type FC } from "react";
 import { useAboutMeTimeline } from "./use-about-me-timeline";
@@ -12,10 +11,9 @@ export const About: FC = () => {
   return (
     <section
       id="about"
-      className="about w-screen h-screen"
+      className="about w-screen h-screen pt-12"
       aria-label="About me section"
     >
-      <SectionHeader className="about-header">ABOUT</SectionHeader>
       <div className="about-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
         <div className="about-content h-full flex flex-col justify-center">
           <div className="flex justify-center items-center gap-6">
@@ -24,7 +22,7 @@ export const About: FC = () => {
               className="h-full flex-1 flex flex-col space-y-4"
             >
               <h3 className="text-start mono uppercase font-light text-gray-200 mb-6">
-                This is me.
+                I'm Ruben
               </h3>
               <div className="h-full flex flex-col space-y-4 justify-center items-center">
                 <div className="flex justify-center items-center gap-6">
@@ -35,10 +33,10 @@ export const About: FC = () => {
                   />
                   <div className="space-y-4">
                     <p className="font-bold text-md text-gray-300">
-                      I'm a software developer based out of the Dallas-Fort
-                      Worth area of Texas. I've specialized in building
-                      frictionless and intricate web applications in the
-                      artificial intelligence space for over six years.
+                      A software developer based out of the Dallas-Fort Worth
+                      area of Texas. I've specialized in building frictionless
+                      and intricate web applications in the artificial
+                      intelligence space for over six years.
                     </p>
                   </div>
                 </div>

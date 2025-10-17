@@ -6,35 +6,47 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const useContactTimeline = () => {
   useGSAP(() => {
-    gsap.set(".contact-header", { opacity: 0 });
     gsap.set(".contact-content", { opacity: 0 });
 
+    // Update shared header when contact section comes into view
     ScrollTrigger.create({
-      trigger: ".contact-header",
-      start: "top top+=48px",
-      end: "bottom top+=48px",
-      scrub: true,
-      animation: gsap.to(".contact-header", {
-        opacity: 1,
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-      }),
-      toggleActions: "play none none reverse",
+      trigger: ".contact",
+      start: "top top+=1px",
+      end: "bottom top",
+      onEnter: () => {
+        gsap.to(".shared-section-header-text", {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            document.querySelector(".shared-section-header-text")!.textContent =
+              "CONTACT";
+            gsap.to(".shared-section-header-text", {
+              opacity: 1,
+              duration: 0.2,
+            });
+          },
+        });
+      },
+      onEnterBack: () => {
+        gsap.to(".shared-section-header-text", {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            document.querySelector(".shared-section-header-text")!.textContent =
+              "CONTACT";
+            gsap.to(".shared-section-header-text", {
+              opacity: 1,
+              duration: 0.2,
+            });
+          },
+        });
+      },
     });
 
     ScrollTrigger.create({
       trigger: ".contact",
-      start: "top top+=48px",
-      end: "bottom top+=48px",
-      scrub: true,
-      pin: ".contact-header",
-      pinSpacing: false,
-      toggleActions: "play none none reverse",
-    });
-
-    ScrollTrigger.create({
-      trigger: ".contact-content",
-      start: "top top+=96px",
-      end: "top top+=48px",
+      start: "top top+=24px",
+      end: "top top",
       scrub: true,
       toggleActions: "play none none reverse",
       animation: gsap.to(".contact-content", { opacity: 1 }),

@@ -6,7 +6,6 @@ export const useSkillsTimeline = () => {
   useGSAP(() => {
     const timeline = gsap.timeline({ paused: false });
 
-    gsap.set(".skills-header", { opacity: 0 });
     gsap.set(".skills-body", { opacity: 0 });
 
     // Set initial state for skill cards
@@ -50,23 +49,45 @@ export const useSkillsTimeline = () => {
       y: 20,
     });
 
+    // Update shared header when skills section comes into view
     ScrollTrigger.create({
-      trigger: ".skills-header",
-      start: "top top+=48px", // When header reaches bottom of navbar (48px = 3rem)
-      end: "bottom top+=48px", // End when section ends
-      scrub: true,
-      pinSpacing: false,
-      animation: gsap.to(".skills-header", {
-        opacity: 1,
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-      }),
-      toggleActions: "play none none reverse",
+      trigger: ".skills",
+      start: "top top+=48px",
+      end: "bottom top",
+      onEnter: () => {
+        gsap.to(".shared-section-header-text", {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            document.querySelector(".shared-section-header-text")!.textContent =
+              "SKILLS";
+            gsap.to(".shared-section-header-text", {
+              opacity: 1,
+              duration: 0.2,
+            });
+          },
+        });
+      },
+      onEnterBack: () => {
+        gsap.to(".shared-section-header-text", {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            document.querySelector(".shared-section-header-text")!.textContent =
+              "SKILLS";
+            gsap.to(".shared-section-header-text", {
+              opacity: 1,
+              duration: 0.2,
+            });
+          },
+        });
+      },
     });
 
     ScrollTrigger.create({
       trigger: ".skills",
-      start: "top top+=48px",
-      end: "bottom top+=48px",
+      start: "top top",
+      end: "bottom top",
       pin: true,
       scrub: true,
       pinSpacing: false,
@@ -75,7 +96,7 @@ export const useSkillsTimeline = () => {
 
     ScrollTrigger.create({
       trigger: ".skills-body",
-      start: "top top+=96px",
+      start: "top top",
       end: "top top",
       scrub: true,
       toggleActions: "play none none reverse",
@@ -218,8 +239,8 @@ export const useSkillsTimeline = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".experience",
-        start: "top top+=48px",
-        end: "top top",
+        start: "top top",
+        end: "top top-=48px",
         pin: ".skills",
         scrub: true,
         pinSpacing: false,

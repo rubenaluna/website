@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { GradientDivider } from "@/components/ui/GradientDivider";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Mail } from "lucide-react";
 import { type FC } from "react";
 import { useContactTimeline } from "./use-contact-timeline";
@@ -12,10 +11,9 @@ export const Contact: FC = () => {
   return (
     <section
       id="contact"
-      className="contact w-screen h-screen"
+      className="contact w-screen h-screen pt-24"
       aria-label="Contact information section"
     >
-      <SectionHeader className="contact-header">CONTACT</SectionHeader>
       <div className="contact-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
         <div className="contact-content h-full flex flex-col justify-center">
           <div className="max-w-3xl mx-auto w-full space-y-8">

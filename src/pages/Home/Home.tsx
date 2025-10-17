@@ -15,9 +15,10 @@ export const Home: FC = () => {
         resolutionScale={1}
       />
 
+      <Logo />
+      <Navigation />
+
       <div className="w-full">
-        <Logo />
-        <Navigation />
         <Hero />
         <About />
         <Skills />

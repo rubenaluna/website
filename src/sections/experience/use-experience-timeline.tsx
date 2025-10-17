@@ -7,28 +7,50 @@ export const useExperienceTimeline = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Initial states
-    gsap.set(".experience-header", { opacity: 0 });
     gsap.set(".experience-body", { opacity: 0 });
     gsap.set(".experience-header-card", { opacity: 0, y: 20 });
     gsap.set(".experience-role-1", { opacity: 0, y: 30 });
     gsap.set(".experience-role-2", { opacity: 0, y: 30 });
     gsap.set(".experience-role-3", { opacity: 0, y: 30 });
 
-    // Header fade in and pin
+    // Update shared header when experience section comes into view
     ScrollTrigger.create({
-      trigger: ".experience-header",
-      start: "top top+=48px",
-      end: "bottom top+=48px",
-      animation: gsap.to(".experience-header", {
-        opacity: 1,
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-      }),
-      toggleActions: "play none none reverse",
+      trigger: ".experience",
+      start: "top top",
+      end: "bottom top",
+      onEnter: () => {
+        gsap.to(".shared-section-header-text", {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            document.querySelector(".shared-section-header-text")!.textContent =
+              "EXPERIENCE";
+            gsap.to(".shared-section-header-text", {
+              opacity: 1,
+              duration: 0.2,
+            });
+          },
+        });
+      },
+      onEnterBack: () => {
+        gsap.to(".shared-section-header-text", {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            document.querySelector(".shared-section-header-text")!.textContent =
+              "EXPERIENCE";
+            gsap.to(".shared-section-header-text", {
+              opacity: 1,
+              duration: 0.2,
+            });
+          },
+        });
+      },
     });
 
     ScrollTrigger.create({
       trigger: ".experience-body",
-      start: "top top+=96px",
+      start: "top top",
       end: "top top",
       scrub: true,
       toggleActions: "play none none reverse",
@@ -40,7 +62,7 @@ export const useExperienceTimeline = () => {
     // Company header card animation - triggers after body is visible
     ScrollTrigger.create({
       trigger: ".experience",
-      start: "top top+=48px",
+      start: "top top",
       onEnter: () => {
         gsap.to(".experience-header-card", {
           opacity: 1,
@@ -122,8 +144,8 @@ export const useExperienceTimeline = () => {
       // Pin the experience section with snap points
       ScrollTrigger.create({
         trigger: ".experience",
-        start: "top top+=48px",
-        end: "bottom top+=48px",
+        start: "top top",
+        end: "bottom top",
         pin: true,
         scrub: true,
         pinSpacing: false,
@@ -154,12 +176,22 @@ export const useExperienceTimeline = () => {
         },
       });
 
-      const timeline = gsap.timeline({ paused: false });
+      ScrollTrigger.create({
+        trigger: ".contact",
+        start: "top top+=48px",
+        end: "top top",
+        scrub: true,
+        toggleActions: "play none none reverse",
+        animation: gsap.to(".experience", {
+          opacity: 0,
+        }),
+      });
+
+      const timeline = gsap.timeline();
       timeline.to(".experience", {
-        opacity: 0,
         scrollTrigger: {
           trigger: ".contact",
-          start: "top top+=48px",
+          start: "top top",
           end: "top top",
           pin: ".experience",
           scrub: true,

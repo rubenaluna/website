@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import gsap, { Power1, Power2 } from "gsap";
+import gsap, { Power1 } from "gsap";
 
 export const useHeroTimeline = () => {
   useGSAP(() => {
@@ -43,7 +43,7 @@ export const useHeroTimeline = () => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           duration: 2.5,
-          ease: Power2.easeInOut,
+          ease: Power1.easeOut,
         },
         "background"
       )

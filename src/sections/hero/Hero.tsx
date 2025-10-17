@@ -9,7 +9,7 @@ export const Hero: FC = () => {
   return (
     <section
       id="hero"
-      className="hero w-screen h-[calc(100vh-48px)] flex flex-col items-center justify-center z-1"
+      className="hero w-screen h-screen flex flex-col items-center justify-center z-1"
       aria-label="Hero section - Introduction"
     >
       <div className="final text-sm font-normal uppercase bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mono">
