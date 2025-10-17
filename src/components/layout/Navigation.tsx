@@ -11,16 +11,16 @@ export const Navigation: FC = () => {
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
-      // Get the element's current position relative to the viewport
-      const elementPosition = targetElement.getBoundingClientRect().top;
+      const { top, height } = targetElement.getBoundingClientRect();
 
-      // Calculate scroll position (element's top position + current scroll position)
-      // We want the section to start right at the top of the viewport
-      const offsetPosition = elementPosition + window.scrollY;
+      const { scrollY } = window;
 
-      // Smooth scroll to the target
+      const offset = top <= 1 ? top - (height * 3) / 4 : top + height / 4;
+
+      const position = scrollY + offset;
+
       window.scrollTo({
-        top: offsetPosition,
+        top: position,
         behavior: "smooth",
       });
     }
