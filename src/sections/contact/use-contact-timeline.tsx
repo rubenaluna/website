@@ -10,7 +10,7 @@ export const useContactTimeline = () => {
 
     ScrollTrigger.create({
       trigger: ".contact",
-      start: "top top+=24px",
+      start: "top top",
       end: "top top",
       scrub: true,
       toggleActions: "play none none reverse",

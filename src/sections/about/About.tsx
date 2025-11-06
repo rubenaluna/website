@@ -1,6 +1,6 @@
-import { DatePill } from "@/components/ui/DatePill";
 import { Divider } from "@/components/ui/Divider";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { Pill } from "@/components/ui/Pill";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Brain, Globe, Layout, Server } from "lucide-react";
 import { type FC } from "react";
@@ -64,7 +64,7 @@ export const About: FC = () => {
                         The University of Texas at Dallas
                       </p>
 
-                      <DatePill>Aug. 2015 - May. 2019</DatePill>
+                      <Pill>Aug. 2015 - May. 2019</Pill>
                     </div>
                   </div>
                 </div>

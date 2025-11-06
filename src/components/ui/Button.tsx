@@ -4,7 +4,6 @@ interface ButtonProps {
   children?: ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary";
   icon?: ReactNode;
   download?: string;
   target?: string;
@@ -17,7 +16,6 @@ export const Button: FC<ButtonProps> = ({
   children,
   href,
   onClick,
-  variant = "primary",
   icon,
   download,
   target,
@@ -26,16 +24,9 @@ export const Button: FC<ButtonProps> = ({
   className = "",
 }) => {
   const baseClasses =
-    "inline-flex items-center gap-2 font-medium rounded-lg shadow-lg";
+    "border border-white/10 bg-white/5 inline-flex items-center gap-2 font-medium rounded-lg shadow-lg px-6 py-3 backdrop-blur-sm bg-white/0 hover:bg-white/10 transition-colors duration-300";
 
-  const variantClasses = {
-    primary:
-      "px-6 py-3 bg-white/10 hover:bg-white/20 transition-colors duration-300",
-    secondary:
-      "px-8 py-4 bg-white/50 hover:bg-white/60 transition-colors duration-300",
-  };
-
-  const classes = `${baseClasses} ${variantClasses[variant]} ${className}`;
+  const classes = `${baseClasses}  ${className}`;
 
   if (href) {
     return (
