@@ -61,7 +61,6 @@ export const Hero: FC = () => {
       <Button
         href="/resume.pdf"
         download="Ruben Luna - Software Engineer Resume.pdf"
-        variant="primary"
         icon={<FileText className="w-5 h-5" />}
         ariaLabel="Resume"
         className="final mt-6"
