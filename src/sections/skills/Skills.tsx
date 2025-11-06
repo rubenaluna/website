@@ -1,5 +1,5 @@
+import { Divider } from "@/components/ui/Divider";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { GradientDivider } from "@/components/ui/GradientDivider";
 import { FaJava, FaMicrosoft } from "react-icons/fa";
 import {
   SiAmazonwebservices,
@@ -51,7 +51,7 @@ export const Skills = () => {
               learn new skills and apply them to projects.
             </span>
             <div className="flex justify-center items-center">
-              <GradientDivider width="md" className="final mt-6" />
+              <Divider width="md" className="final mt-6" />
             </div>
           </GlassCard>
 

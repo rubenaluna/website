@@ -30,9 +30,9 @@ export const Button: FC<ButtonProps> = ({
 
   const variantClasses = {
     primary:
-      "px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-500 hover:to-teal-500 shadow-emerald-900/50",
+      "px-6 py-3 bg-white/10 hover:bg-white/20 transition-colors duration-300",
     secondary:
-      "px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-500 hover:to-teal-500 shadow-emerald-900/50",
+      "px-8 py-4 bg-white/50 hover:bg-white/60 transition-colors duration-300",
   };
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${className}`;

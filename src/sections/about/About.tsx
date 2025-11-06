@@ -1,6 +1,6 @@
 import { DatePill } from "@/components/ui/DatePill";
+import { Divider } from "@/components/ui/Divider";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { GradientDivider } from "@/components/ui/GradientDivider";
 import { Brain, Globe, Layout, Server } from "lucide-react";
 import { type FC } from "react";
 import { useAboutMeTimeline } from "./use-about-me-timeline";
@@ -44,7 +44,7 @@ export const About: FC = () => {
                   My full-stack experience enables me to bring ideas to life
                   from back-end to front-end and concept to delivery.
                 </span>
-                <GradientDivider width="lg" className="final mt-6" />
+                <Divider width="lg" className="final mt-6" />
               </div>
             </GlassCard>
 

@@ -12,7 +12,7 @@ module.exports = {
           "sans-serif",
         ],
         mono: [
-          '"JetBrains Mono"',
+          '"Martian Mono"',
           '"SF Mono"',
           "Monaco",
           "Consolas",

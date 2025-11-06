@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
+import { Divider } from "@/components/ui/Divider";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { GradientDivider } from "@/components/ui/GradientDivider";
 import { Mail } from "lucide-react";
 import { type FC } from "react";
 import { useContactTimeline } from "./use-contact-timeline";
@@ -23,7 +23,7 @@ export const Contact: FC = () => {
                   <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
                     Let's Connect
                   </h3>
-                  <GradientDivider width="sm" className="mx-auto" />
+                  <Divider width="sm" className="mx-auto" />
                   <p className="text-lg text-gray-300 max-w-xl mx-auto">
                     I'm always interested in new opportunities and exciting
                     projects. Let's discuss how we can work together.
