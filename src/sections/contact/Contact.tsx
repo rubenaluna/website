@@ -17,7 +17,7 @@ export const Contact: FC = () => {
       <div className="contact-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6">
         <div className="contact-content h-full flex flex-col justify-center">
           <div className="max-w-3xl mx-auto w-full space-y-8">
-            <GlassCard padding="lg" className="p-12">
+            <GlassCard className="p-12">
               <div className="text-center space-y-8">
                 <div className="space-y-4">
                   <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
@@ -32,7 +32,6 @@ export const Contact: FC = () => {
 
                 <Button
                   href="mailto:rubenaluna@outlook.com"
-                  variant="secondary"
                   icon={<Mail className="w-5 h-5" />}
                   ariaLabel="Send email to Ruben Luna"
                   className="gap-3"

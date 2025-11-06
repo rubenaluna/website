@@ -39,11 +39,7 @@ export const Skills = () => {
     >
       <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center lg:px-6 px-4 lg:py-8 py-4">
         <div className="skills-content flex flex-col space-y-6">
-          <GlassCard
-            padding="lg"
-            backdropBlur={true}
-            className="flex flex-col lg:space-y-4 space-y-2"
-          >
+          <GlassCard className="flex flex-col lg:space-y-4 space-y-2">
             <SectionHeader text="Skills" />
             <span className="font-bold text-md text-gray-300 lg:text-base text-sm">
               I have experience in a wide range of technologies and am always
