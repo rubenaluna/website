@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import gsap, { Power1 } from "gsap";
+import gsap, { Expo, Power1 } from "gsap";
 
 export const useHeroTimeline = () => {
   useGSAP(() => {
@@ -13,9 +13,11 @@ export const useHeroTimeline = () => {
         left: "50%",
         transform: "translate(-50%, -50%)",
         opacity: 0,
+        filter: "blur(10px)",
       })
       .set(".name", {
         opacity: 0,
+        filter: "blur(10px)",
       })
       .set(".final", {
         opacity: 0,
@@ -31,7 +33,8 @@ export const useHeroTimeline = () => {
     timeline.to(".logo", {
       opacity: 1,
       duration: 1,
-      ease: Power1.easeOut,
+      filter: "blur(0px)",
+      ease: Expo.easeOut,
     });
 
     // Logo transitions to center of navbar and DarkVeilBackground fades in
@@ -42,7 +45,7 @@ export const useHeroTimeline = () => {
           top: "1.5rem",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          duration: 2.5,
+          duration: 3,
           ease: Power1.easeOut,
         },
         "background"
@@ -51,7 +54,7 @@ export const useHeroTimeline = () => {
         ".background",
         {
           opacity: 1,
-          duration: 2,
+          duration: 3,
           ease: Power1.easeInOut,
         },
         "background"
@@ -70,8 +73,9 @@ export const useHeroTimeline = () => {
       ".name",
       {
         opacity: 1,
-        duration: 0.8,
-        ease: Power1.easeOut,
+        duration: 1,
+        ease: Expo.easeOut,
+        filter: "blur(0px)",
       },
       "name"
     );
@@ -100,6 +104,7 @@ export const useHeroTimeline = () => {
     // Hero content fade out animation while pinned
     timeline.to(".hero", {
       opacity: 0,
+      filter: "blur(10px)",
       scale: 0.9,
       scrollTrigger: {
         trigger: ".about",

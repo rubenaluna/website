@@ -6,90 +6,7 @@ export const useAboutMeTimeline = () => {
   useGSAP(() => {
     const timeline = gsap.timeline({ paused: false });
 
-    // Add subtle fade-in effect for about content when scrolling up
-
-    // Set initial state for about cards
-    gsap.set(".about-body > div > div > div:nth-child(1)", {
-      opacity: 0,
-      x: -100,
-      scale: 0.95,
-    });
-
-    gsap.set(".about-body > div > div > div:nth-child(2) > div:nth-child(1)", {
-      opacity: 0,
-      y: -50,
-      scale: 0.95,
-    });
-
-    gsap.set(".about-body > div > div > div:nth-child(2) > div:nth-child(2)", {
-      opacity: 0,
-      y: 50,
-      scale: 0.95,
-    });
-
-    gsap.set(
-      ".about-body > div > div > div:nth-child(2) > div:nth-child(2) .grid > div",
-      {
-        opacity: 0,
-        scale: 0.8,
-        y: 30,
-      }
-    );
-
-    // Update shared header when about section comes into view
-    ScrollTrigger.create({
-      trigger: ".about",
-      start: "top top",
-      end: "bottom top",
-      onEnter: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "ABOUT";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-        gsap.to(".shared-section-header", {
-          height: "48px",
-          opacity: 1,
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-          duration: 0.3,
-        });
-      },
-      onEnterBack: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "ABOUT";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-        gsap.to(".shared-section-header", {
-          height: "48px",
-          opacity: 1,
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-          duration: 0.3,
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(".shared-section-header", {
-          height: "0px",
-          opacity: 0,
-          borderBottom: "1px solid transparent",
-          duration: 0.3,
-        });
-      },
-    });
+    gsap.set(".about-body", { opacity: 0 });
 
     ScrollTrigger.create({
       trigger: ".about",
@@ -102,99 +19,13 @@ export const useAboutMeTimeline = () => {
 
     ScrollTrigger.create({
       trigger: ".about-body",
-      start: "top top",
+      start: "top top+=48px",
       end: "top top",
       scrub: true,
       toggleActions: "play none none reverse",
-      onEnter: () => {
-        // Create a timeline for card animations that plays once
-        const cardsTimeline = gsap.timeline();
-
-        // Animate the main "This is me" card
-        cardsTimeline.to(
-          ".about-body > div > div > div:nth-child(1)",
-          {
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          0
-        );
-
-        // Animate the Education card
-        cardsTimeline.to(
-          ".about-body > div > div > div:nth-child(2) > div:nth-child(1)",
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          0.2
-        );
-
-        // Animate the Interests card container
-        cardsTimeline.to(
-          ".about-body > div > div > div:nth-child(2) > div:nth-child(2)",
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          0.4
-        );
-
-        // Stagger animate the individual interest cards
-        cardsTimeline.to(
-          ".about-body > div > div > div:nth-child(2) > div:nth-child(2) .grid > div",
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "back.out(1.2)",
-          },
-          0.6
-        );
-      },
-      onLeaveBack: () => {
-        // Reset animations when scrolling back up
-        gsap.set(".about-body > div > div > div:nth-child(1)", {
-          opacity: 0,
-          x: -100,
-          scale: 0.95,
-        });
-        gsap.set(
-          ".about-body > div > div > div:nth-child(2) > div:nth-child(1)",
-          {
-            opacity: 0,
-            y: -50,
-            scale: 0.95,
-          }
-        );
-        gsap.set(
-          ".about-body > div > div > div:nth-child(2) > div:nth-child(2)",
-          {
-            opacity: 0,
-            y: 50,
-            scale: 0.95,
-          }
-        );
-        gsap.set(
-          ".about-body > div > div > div:nth-child(2) > div:nth-child(2) .grid > div",
-          {
-            opacity: 0,
-            scale: 0.8,
-            y: 30,
-          }
-        );
-      },
+      animation: gsap.to(".about-body", {
+        opacity: 1,
+      }),
     });
 
     timeline.to(".about", {

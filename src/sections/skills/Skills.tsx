@@ -1,5 +1,7 @@
+import { Divider } from "@/components/ui/Divider";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { GradientDivider } from "@/components/ui/GradientDivider";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Skill } from "@/components/ui/Skill";
 import { FaJava, FaMicrosoft } from "react-icons/fa";
 import {
   SiAmazonwebservices,
@@ -32,228 +34,223 @@ export const Skills = () => {
   return (
     <section
       id="skills"
-      className="skills w-screen h-screen pt-24"
+      className="skills w-screen h-screen pt-12"
       aria-label="Technical skills section"
     >
-      <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center px-6 py-8">
+      <div className="skills-body max-w-7xl h-full mx-auto flex flex-col justify-center lg:px-6 px-4 lg:py-8 py-4">
         <div className="skills-content flex flex-col space-y-6">
           <GlassCard
             padding="lg"
             backdropBlur={true}
-            className="flex flex-col space-y-4"
+            className="flex flex-col lg:space-y-4 space-y-2"
           >
-            <h3 className="skills-title mono leading-tight uppercase font-light text-gray-200">
-              Full Stack Development
-            </h3>
-            <span className="font-bold text-md text-gray-300">
+            <SectionHeader text="Skills" />
+            <span className="font-bold text-md text-gray-300 lg:text-base text-sm">
               I have experience in a wide range of technologies and am always
               looking to learn new ones. I am known for my ability to quickly
               learn new skills and apply them to projects.
             </span>
             <div className="flex justify-center items-center">
-              <GradientDivider width="md" className="final mt-6" />
+              <Divider width="md" className="final lg:mt-6 mt-2" />
+            </div>
+
+            <div className="flex lg:flex-row flex-col w-full lg:gap-6 gap-2">
+              {/* Back-End Development Card */}
+              <div className="skills-be flex-1 flex flex-col bg-white/5 rounded-xl lg:p-6 p-2 border border-white/10 items-center justify-center lg:gap-4 gap-2">
+                <h3 className="mono uppercase lg:text-lg text-xs font-light">
+                  Back-End Development
+                </h3>
+                <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
+                  <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 lg:py-4 py-2">
+                    <Skill icon={<FaJava className="text-2xl" />} name="Java" />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiPython className="text-2xl text-white/50" />}
+                      name="Python"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={
+                        <TbBrandCSharp className="text-2xl text-white/50" />
+                      }
+                      name="C#"
+                    />
+                  </div>
+                  <div className="flex w-full justify-center items-center lg:space-x-4 space-x-2 border-b border-gray-400/30 lg:py-4 py-2">
+                    <Skill
+                      icon={<SiSpring className="text-2xl text-white/50" />}
+                      name="Spring Boot"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiNodedotjs className="text-2xl text-white/50" />}
+                      name="Node.js"
+                    />
+                  </div>
+                  <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 lg:py-4 py-2">
+                    <Skill
+                      icon={<TbApi className="text-2xl text-white/50" />}
+                      name="REST"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={
+                        <img
+                          src="/tech-icons/grpc.svg"
+                          alt="gRPC"
+                          className="w-6 h-6"
+                        />
+                      }
+                      name="gRPC"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiGraphql className="text-2xl text-white/50" />}
+                      name="GraphQL"
+                    />
+                  </div>
+                  <div className="flex w-full justify-center items-center space-x-4 lg:py-4 py-2">
+                    <Skill
+                      icon={<SiPostgresql className="text-2xl text-white/50" />}
+                      name="PostgreSQL"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Front-End Development Card */}
+              <div className="skills-fe flex-1 flex flex-col bg-white/5 rounded-xl lg:p-6 p-2 border border-white/10 items-center justify-center lg:gap-4 gap-2">
+                <h3 className="mono uppercase lg:text-lg text-xs font-light">
+                  Front-End Development
+                </h3>
+                <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
+                  <div className="flex w-full justify-center items-center lg:space-x-4 space-x-2 border-b border-gray-400/30 lg:py-4 py-2">
+                    <Skill
+                      icon={<SiJavascript className="text-2xl text-white/50" />}
+                      name="JavaScript"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiTypescript className="text-2xl text-white/50" />}
+                      name="TypeScript"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={
+                        <div className="flex gap-0.5">
+                          <SiHtml5 className="text-2xl text-white/50" />
+                          <SiCss3 className="text-2xl text-white/50" />
+                        </div>
+                      }
+                      name="HTML/CSS"
+                    />
+                  </div>
+                  <div className="flex w-full justify-center items-center lg:space-x-4 space-x-2 lg:py-4 py-2">
+                    <Skill
+                      icon={
+                        <SiReact className="text-2xl text-white/50      " />
+                      }
+                      name="React"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiVuedotjs className="text-2xl text-white/50" />}
+                      name="Vue.js"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={
+                        <SiTailwindcss className="text-2xl text-white/50" />
+                      }
+                      name="Tailwind CSS"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={
+                        <img
+                          src="/tech-icons/gsap-white.svg"
+                          alt="GSAP"
+                          className="w-6 h-6"
+                        />
+                      }
+                      name="GSAP"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Operations Card */}
+              <div className="skills-ops flex-1 flex flex-col bg-white/5 rounded-xl lg:p-6 p-2 border border-white/10 items-center justify-center lg:gap-4 gap-2">
+                <h3 className="mono uppercase lg:text-lg text-xs font-light">
+                  Operations
+                </h3>
+                <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
+                  <div className="flex w-full justify-center items-center lg:space-x-4 space-x-2 border-b border-gray-400/30 lg:py-4 py-2">
+                    <Skill
+                      icon={<SiKubernetes className="text-2xl text-white/50" />}
+                      name="Kubernetes"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiDocker className="text-2xl text-white/50" />}
+                      name="Docker"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiGit className="text-2xl text-white/50" />}
+                      name="Git"
+                    />
+                  </div>
+                  <div className="flex w-full justify-center items-center lg:space-x-4 space-x-2 border-b border-gray-400/30 lg:py-4 py-2">
+                    <Skill
+                      icon={<SiRedis className="text-2xl text-white/50" />}
+                      name="Redis"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiRabbitmq className="text-2xl text-white/50" />}
+                      name="RabbitMQ"
+                    />
+                  </div>
+                  <div className="flex w-full justify-center items-center lg:space-x-4 space-x-2 border-b border-gray-400/30 lg:py-4 py-2">
+                    <Skill
+                      icon={
+                        <SiAmazonwebservices className="text-2xl text-white/50" />
+                      }
+                      name="AWS"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<FaMicrosoft className="text-2xl text-white/50" />}
+                      name="Azure"
+                    />
+                  </div>
+                  <div className="flex w-full justify-center items-center lg:space-x-4 space-x-2 lg:py-4 py-2">
+                    <Skill
+                      icon={<SiGithub className="text-2xl text-white/50" />}
+                      name="GitHub"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={<SiJira className="text-2xl text-white/50" />}
+                      name="Jira"
+                    />
+                    <div className="text-gray-500 self-center">•</div>
+                    <Skill
+                      icon={
+                        <img
+                          src="/tech-icons/cursor.svg"
+                          alt="Cursor"
+                          className="w-6 h-6 text-white/50"
+                        />
+                      }
+                      name="Cursor"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </GlassCard>
-
-          <div className="flex w-full gap-6">
-            {/* Back-End Development Card */}
-            <GlassCard
-              padding="md"
-              backdropBlur={true}
-              className="skills-be flex-1 flex flex-col border-emerald-700/30 hover:border-emerald-600/50 transition-all duration-300"
-            >
-              <h3 className="mono uppercase text-lg font-light text-emerald-300 text-center hover:text-emerald-200 transition-colors">
-                Back-End Development
-              </h3>
-              <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
-                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <FaJava className="text-2xl" />
-                    <span className="text-sm">Java</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiPython className="text-2xl" />
-                    <span className="text-sm">Python</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <TbBrandCSharp className="text-2xl" />
-                    <span className="text-sm">C#</span>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiSpring className="text-2xl" />
-                    <span className="text-sm whitespace-nowrap">
-                      Spring Boot
-                    </span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiNodedotjs className="text-2xl" />
-                    <span className="text-sm">Node.js</span>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <TbApi className="text-2xl" />
-                    <span className="text-sm">REST</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <img
-                      src="/tech-icons/grpc.svg"
-                      alt="gRPC"
-                      className="w-6 h-6"
-                    />
-                    <span className="text-sm">gRPC</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiGraphql className="text-2xl" />
-                    <span className="text-sm">GraphQL</span>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center space-x-4 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiPostgresql className="text-2xl" />
-                    <span className="text-sm">PostgreSQL</span>
-                  </div>
-                </div>
-              </div>
-            </GlassCard>
-
-            {/* Front-End Development Card */}
-            <GlassCard
-              padding="md"
-              backdropBlur={true}
-              className="skills-fe flex-1 flex flex-col border-teal-700/30 hover:border-teal-600/50 transition-all duration-300"
-            >
-              <h3 className="mono uppercase text-lg font-light text-teal-300 text-center hover:text-teal-200 transition-colors">
-                Front-End Development
-              </h3>
-              <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
-                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiJavascript className="text-2xl" />
-                    <span className="text-sm">JavaScript</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiTypescript className="text-2xl" />
-                    <span className="text-sm">TypeScript</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="flex gap-0.5">
-                      <SiHtml5 className="text-2xl" />
-                      <SiCss3 className="text-2xl" />
-                    </div>
-                    <span className="text-sm">HTML/CSS</span>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center space-x-4 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiReact className="text-2xl" />
-                    <span className="text-sm">React</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiVuedotjs className="text-2xl" />
-                    <span className="text-sm">Vue.js</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiTailwindcss className="text-2xl" />
-                    <span className="text-sm whitespace-nowrap">
-                      Tailwind CSS
-                    </span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <img
-                      src="/tech-icons/gsap-white.svg"
-                      alt="GSAP"
-                      className="w-6 h-6"
-                    />
-                    <span className="text-sm">GSAP</span>
-                  </div>
-                </div>
-              </div>
-            </GlassCard>
-
-            {/* Operations Card */}
-            <GlassCard
-              padding="md"
-              backdropBlur={true}
-              className="skills-ops flex-1 flex flex-col border-cyan-700/30 hover:border-cyan-600/50 transition-all duration-300"
-            >
-              <h3 className="mono uppercase text-lg font-light text-cyan-300 text-center hover:text-cyan-200 transition-colors">
-                Operations
-              </h3>
-              <div className="flex flex-col h-full w-full justify-center items-center text-minimal-light overflow-hidden">
-                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiKubernetes className="text-2xl" />
-                    <span className="text-sm">Kubernetes</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiDocker className="text-2xl" />
-                    <span className="text-sm">Docker</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiGit className="text-2xl" />
-                    <span className="text-sm">Git</span>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiRedis className="text-2xl" />
-                    <span className="text-sm">Redis</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiRabbitmq className="text-2xl" />
-                    <span className="text-sm">RabbitMQ</span>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center space-x-4 border-b border-gray-400/30 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiAmazonwebservices className="text-2xl" />
-                    <span className="text-sm">AWS</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <FaMicrosoft className="text-2xl" />
-                    <span className="text-sm">Azure</span>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center space-x-4 py-4">
-                  <div className="flex flex-col items-center gap-1">
-                    <SiGithub className="text-2xl" />
-                    <span className="text-sm">GitHub</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <SiJira className="text-2xl" />
-                    <span className="text-sm">Jira</span>
-                  </div>
-                  <div className="text-gray-500 self-center">•</div>
-                  <div className="flex flex-col items-center gap-1">
-                    <img
-                      src="/tech-icons/cursor.svg"
-                      alt="Cursor"
-                      className="w-6 h-6"
-                    />
-                    <span className="text-sm">Cursor</span>
-                  </div>
-                </div>
-              </div>
-            </GlassCard>
-          </div>
         </div>
       </div>
     </section>

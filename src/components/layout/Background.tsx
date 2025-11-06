@@ -36,6 +36,8 @@ mat3 yiq2rgb=mat3(1.0,0.956,0.621,1.0,-0.272,-0.647,1.0,-1.106,1.703);
 vec3 hueShiftRGB(vec3 col,float deg){
     float gray = dot(col, vec3(0.2126, 0.7152, 0.0722));
     float gammaGray = sqrt(gray);
+    // Lighten the grayscale value - raise the minimum brightness
+    gammaGray = gammaGray + 0.025; // Scale and add offset to make it lighter
     return vec3(gammaGray, gammaGray, gammaGray);
 }
 

@@ -11,7 +11,7 @@ export const Clock = () => {
   return (
     <div className="flex items-center space-x-2">
       <div className="w-3 h-3 bg-white"></div>
-      <span className="mono text-sm whitespace-nowrap">
+      <span className="mono font-light text-xs whitespace-nowrap">
         {formatInTimeZone(time, "America/Chicago", "hh:mm:ss aa zzz")}
       </span>
     </div>
