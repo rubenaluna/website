@@ -28,7 +28,7 @@ export const Navigation: FC = () => {
 
   return (
     <nav
-      className="navbar fixed top-0 left-0 right-0 bg-black/40 backdrop-blur-sm z-98"
+      className="navbar fixed top-0 left-0 right-0 backdrop-blur-sm z-98"
       aria-label="Main navigation"
     >
       {/* Main Navigation Row */}
@@ -40,7 +40,7 @@ export const Navigation: FC = () => {
 
         {/* Right - Navigation */}
         <div className="flex items-center final">
-          <div className="hidden md:flex items-center space-x-8 text-sm font-normal tracking-widest uppercase mono">
+          <div className="hidden md:flex items-center space-x-8 text-xs font-light tracking-widest uppercase mono">
             <a
               href="#about"
               onClick={handleScrollToSection}
@@ -71,20 +71,6 @@ export const Navigation: FC = () => {
             </a>
           </div>
         </div>
-      </div>
-
-      {/* Section Header Row */}
-      <div
-        className="shared-section-header w-full h-0 px-6 flex items-center space-x-2 overflow-hidden transition-all duration-300"
-        style={{
-          opacity: 0,
-          borderBottom: "1px solid transparent",
-        }}
-      >
-        <div className="w-3 h-3 bg-white"></div>
-        <h2 className="shared-section-header-text text-lg uppercase mono text-gray-400">
-          ABOUT
-        </h2>
       </div>
     </nav>
   );

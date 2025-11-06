@@ -36,61 +36,6 @@ export const useAboutMeTimeline = () => {
       }
     );
 
-    // Update shared header when about section comes into view
-    ScrollTrigger.create({
-      trigger: ".about",
-      start: "top top",
-      end: "bottom top",
-      onEnter: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "ABOUT";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-        gsap.to(".shared-section-header", {
-          height: "48px",
-          opacity: 1,
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-          duration: 0.3,
-        });
-      },
-      onEnterBack: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "ABOUT";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-        gsap.to(".shared-section-header", {
-          height: "48px",
-          opacity: 1,
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-          duration: 0.3,
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(".shared-section-header", {
-          height: "0px",
-          opacity: 0,
-          borderBottom: "1px solid transparent",
-          duration: 0.3,
-        });
-      },
-    });
-
     ScrollTrigger.create({
       trigger: ".about",
       start: "top top",

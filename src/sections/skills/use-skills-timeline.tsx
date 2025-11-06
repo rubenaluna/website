@@ -49,41 +49,6 @@ export const useSkillsTimeline = () => {
       y: 20,
     });
 
-    // Update shared header when skills section comes into view
-    ScrollTrigger.create({
-      trigger: ".skills",
-      start: "top top+=48px",
-      end: "bottom top",
-      onEnter: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "SKILLS";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-      },
-      onEnterBack: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "SKILLS";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-      },
-    });
-
     ScrollTrigger.create({
       trigger: ".skills",
       start: "top top",

@@ -13,41 +13,6 @@ export const useExperienceTimeline = () => {
     gsap.set(".experience-role-2", { opacity: 0, y: 30 });
     gsap.set(".experience-role-3", { opacity: 0, y: 30 });
 
-    // Update shared header when experience section comes into view
-    ScrollTrigger.create({
-      trigger: ".experience",
-      start: "top top",
-      end: "bottom top",
-      onEnter: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "EXPERIENCE";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-      },
-      onEnterBack: () => {
-        gsap.to(".shared-section-header-text", {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            document.querySelector(".shared-section-header-text")!.textContent =
-              "EXPERIENCE";
-            gsap.to(".shared-section-header-text", {
-              opacity: 1,
-              duration: 0.2,
-            });
-          },
-        });
-      },
-    });
-
     ScrollTrigger.create({
       trigger: ".experience-body",
       start: "top top",
