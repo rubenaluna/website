@@ -107,7 +107,7 @@ npm run preview
 
 - **Button** - Gradient button with variants
 - **GlassCard** - Glass-morphism card component
-- **DatePill** - Date badge component
+- **Pill** - Date badge component
 - **TechTag** - Technology tag with color variants
 - **SectionHeader** - Consistent section headers
 - **GradientDivider** - Decorative gradient divider
